@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Diakszovetkezet
 {
-    struct structUserData
+    public struct structUserData
     {
         private static string UserName;
         private static string Email;

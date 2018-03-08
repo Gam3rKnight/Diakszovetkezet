@@ -10,8 +10,14 @@ namespace Diakszovetkezet
 {
     class DBConnection
     {
-        string connectionString = "";
+        string connectionString;
         SqlConnection myConnection;
-        
+        structUserData userData;
+        public DBConnection()
+        {
+            connectionString = "Server=DESKTOP-4U577HS;Database=Diakszovetkezet;Trusted_Connection=True;";
+            myConnection = new SqlConnection(connectionString);
+            MessageBox.Show(myConnection.State.ToString(), "Info", MessageBoxButton.OK);
+        }
     }
 }

@@ -20,10 +20,11 @@ namespace Diakszovetkezet
     /// </summary>
     public partial class MainWindow : Window
     {
+        DBConnection connection;
         public MainWindow()
         {
             InitializeComponent();
-            
+            connection = new DBConnection();
         }
 
         private void btBejelentkezes_Click(object sender, RoutedEventArgs e)
