@@ -28,9 +28,6 @@ namespace Diakszovetkezet
         {
             InitializeComponent();
             user = new structUserData();
-            wndDiak = new wndDiakAblak();
-            wndAdmin = new wndRendszerAdmin();
-            wndReg = new wndRegisztracio();
         }
 
         public structUserData User
@@ -63,6 +60,7 @@ namespace Diakszovetkezet
                     }
                     if (vane && user.role == 1)
                     {
+                        wndDiak = new wndDiakAblak();
                         wndDiak.Closing += Window_Closing;
                         wndDiak.ShowDialog();
                         tbFelhasznalonev.Clear();
@@ -70,6 +68,7 @@ namespace Diakszovetkezet
                     }
                     else if (vane && user.role == 0)
                     {
+                        wndAdmin = new wndRendszerAdmin();
                         wndAdmin.Closing += Window_Closing;
                         wndAdmin.ShowDialog();
                         tbFelhasznalonev.Clear();
@@ -118,8 +117,9 @@ namespace Diakszovetkezet
 
         private void btRegisztracio_Click(object sender, RoutedEventArgs e)
         {
+            wndReg = new wndRegisztracio();
             wndReg.Closing += Window_Closing;
-            wndReg.Show();
+            wndReg.ShowDialog();
         }
     }
 }
