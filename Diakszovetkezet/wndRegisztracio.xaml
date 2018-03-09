@@ -12,24 +12,35 @@
             <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Border Grid.Row="0" BorderThickness="0,1.2,0,0" BorderBrush="LightSkyBlue">
-            
+        <Border Grid.Row="0" BorderThickness="0,1.2,0,0" BorderBrush="LightSkyBlue" Background="Coral">
+            <Label x:Name="lbRegisztracio" Foreground="AntiqueWhite" Content="A csillaggal jelölt mezők kitöltése kötelező!" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="20,0,0,0" />
         </Border>
-        <GroupBox Grid.Row="1" BorderThickness="1.1" BorderBrush="LightSkyBlue">
+        <GroupBox Grid.Row="1" Header="Diák regisztráció" BorderThickness="1.1" BorderBrush="SteelBlue" Background="AliceBlue">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-                
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label x:Name="lbFelhasznalonev" Grid.Column="0" Grid.Row="0" Content="Felhasználónév" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="RoyalBlue" Margin="0,0,15,0"/>
+                <TextBox x:Name="tbFelhasznalonev" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="200" Height="30" FontSize="20" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="15,0,0,0" BorderBrush="Transparent" BorderThickness="0,0,0,1" Background="AliceBlue" Foreground="SteelBlue"/>
+                <Label x:Name="lbJelszo" Grid.Column="0" Grid.Row="1" Content="Jelszó" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="RoyalBlue" Margin="0,0,15,0"/>
+                <PasswordBox x:Name="tbJelszo" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="200" Height="30" FontSize="20" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="15,0,0,0" BorderBrush="Transparent" BorderThickness="0,0,0,1" Background="AliceBlue" Foreground="SteelBlue"/>
+                <Label Grid.Column="0" Grid.Row="0" Content="Felhasználónév" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="RoyalBlue" Margin="0,0,15,0"/>
+                <TextBox Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="200" Height="30" FontSize="20" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="15,0,0,0" BorderBrush="Transparent" BorderThickness="0,0,0,1" Background="AliceBlue" Foreground="SteelBlue"/>
+                <Label Grid.Column="0" Grid.Row="0" Content="Felhasználónév" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="RoyalBlue" Margin="0,0,15,0"/>
+                <TextBox Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="200" Height="30" FontSize="20" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="15,0,0,0" BorderBrush="Transparent" BorderThickness="0,0,0,1" Background="AliceBlue" Foreground="SteelBlue"/>
+                <Label Grid.Column="0" Grid.Row="0" Content="Felhasználónév" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="RoyalBlue" Margin="0,0,15,0"/>
+                <TextBox Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="200" Height="30" FontSize="20" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="15,0,0,0" BorderBrush="Transparent" BorderThickness="0,0,0,1" Background="AliceBlue" Foreground="SteelBlue"/>
+
             </Grid>
         </GroupBox>
     </Grid>
