@@ -20,7 +20,11 @@
                     <GradientStop Color="#FF1926A6"/>
                 </LinearGradientBrush>
             </Border.OpacityMask>
-            <Button x:Name="btBejelentkezes" Content="Bejelentkezés" Foreground="RoyalBlue" FontSize="40" Width="280" Background="LightSkyBlue" BorderBrush="Transparent" BorderThickness="0,0,0,0"   Click="btBejelentkezes_Click" HorizontalAlignment="Right" Margin="0,60,30,10"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+             <Button x:Name="btRegisztracio" Content="Regisztráció" Foreground="RoyalBlue" FontSize="30" Width="200" Background="LightSkyBlue" BorderBrush="Transparent" BorderThickness="0,0,0,0"   Click="btRegisztracio_Click" HorizontalAlignment="Right" Margin="30,60,30,20"/>
+             <Button x:Name="btBejelentkezes" Content="Bejelentkezés" Foreground="RoyalBlue" FontSize="30" Width="200" Background="LightSkyBlue" BorderBrush="Transparent" BorderThickness="0,0,0,0"   Click="btBejelentkezes_Click" HorizontalAlignment="Right" Margin="30,60,30,20"/>
+
+            </StackPanel>
         </Border>
         <Border x:Name="bdFelhasznalonev" Grid.Row="1" BorderBrush="CornflowerBlue" Background="AliceBlue" BorderThickness="0,2,0,0"  >
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,25,45,20">

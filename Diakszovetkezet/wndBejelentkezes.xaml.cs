@@ -22,14 +22,15 @@ namespace Diakszovetkezet
         private structUserData user;
         wndDiakAblak wndDiak;
         wndRendszerAdmin wndAdmin;
+        wndRegisztracio wndReg;
       
         public wndBejelentkezes()
         {
-            
             InitializeComponent();
             user = new structUserData();
             wndDiak = new wndDiakAblak();
             wndAdmin = new wndRendszerAdmin();
+            wndReg = new wndRegisztracio();
         }
 
         public structUserData User
@@ -113,6 +114,12 @@ namespace Diakszovetkezet
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             e.Cancel = (MessageBox.Show("Biztosan be akarja zárni az ablakot?", "Figyelmeztetés", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.Yes) == MessageBoxResult.No);
+        }
+
+        private void btRegisztracio_Click(object sender, RoutedEventArgs e)
+        {
+            wndReg.Closing += Window_Closing;
+            wndReg.Show();
         }
     }
 }
