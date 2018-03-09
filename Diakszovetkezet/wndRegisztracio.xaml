@@ -7,13 +7,30 @@
         mc:Ignorable="d"
         Title="Regisztráció" Height="440" Width="600">
     <Grid Background="AliceBlue">
+
         <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" BorderThickness="0,1.2,0,0" BorderBrush="LightSkyBlue">
+            
+        </Border>
+        <GroupBox Grid.Row="1" BorderThickness="1.1" BorderBrush="LightSkyBlue">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
-
+                
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>

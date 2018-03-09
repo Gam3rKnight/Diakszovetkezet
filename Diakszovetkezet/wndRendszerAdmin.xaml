@@ -5,15 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Diakszovetkezet"
         mc:Ignorable="d"
-        Title="Rendszer Adminisztrátor" Height="760" Width="1280">
+        Title="Rendszer Adminisztrátor" Height="785" Width="1280">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="640"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        
-        <TabControl Grid.Row="1">
+        <Menu Grid.Row="0">
+            <Menu.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </Menu.ItemsPanel>
+            <MenuItem Header="Kilépés" Click="MenuItem_Click"/>
+        </Menu>
+        <TabControl Grid.Row="2">
             <TabItem Header="Munkák" Name="tiMunkak">
                 <Grid Background="White">
                     <ListView Margin="0,0,0,30" HorizontalAlignment="Stretch" Name="lvMunkaLista" >
@@ -38,7 +46,7 @@
                 <Grid Background="White"/>
             </TabItem>
         </TabControl>
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Stretch">
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Stretch">
             <StatusBar Name="sbAdatSav"/>
         </StackPanel>
 

@@ -35,5 +35,11 @@ namespace Diakszovetkezet
         //Ebbe a listába fogjuk betölteni azokat az adatokat amiket a Munkák kilistázására fogunk használni.
         //<summary>
         List<lvElmenetsMunka> lElements = new List<lvElmenetsMunka>();
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+        
     }
 }
