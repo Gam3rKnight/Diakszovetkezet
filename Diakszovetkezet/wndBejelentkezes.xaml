@@ -1,4 +1,4 @@
-﻿<Window x:Class="Diakszovetkezet.MainWindow"
+﻿<Window x:Class="Diakszovetkezet.wndBejelentkezes"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -26,14 +26,14 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,25,45,20">
 
             <Label x:Name="laFelhasznalonev" Content="Felhasználónév" Foreground="SteelBlue" FontSize="20" Margin="0,0,20,0" />
-            <TextBox x:Name="tbFelhasznalonev" FontSize="20" Background="AliceBlue" Foreground="LightSkyBlue" VerticalAlignment="Center" Width="200" CaretBrush="DimGray" BorderBrush="Transparent" BorderThickness="0,0,0,1" UseLayoutRounding="True" />
+            <TextBox x:Name="tbFelhasznalonev" FontSize="20" Background="AliceBlue" Foreground="LightSkyBlue" VerticalAlignment="Center" Width="200" CaretBrush="DimGray" BorderBrush="Transparent" BorderThickness="0,0,0,1" UseLayoutRounding="True" TextChanged="tbFelhasznalonev_TextChanged" />
 
         </StackPanel>
            </Border>
         <Border x:Name="bdJelszo" Grid.Row="2" BorderBrush="CornflowerBlue" Background="AliceBlue">
             <StackPanel  Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,45,25">
                 <Label x:Name="laJelszo" Content="Jelszó" Foreground="SteelBlue" FontSize="20" Margin="0,0,20,0" />
-                <PasswordBox x:Name="pbJelszo" FontSize="20" Background="AliceBlue" Foreground="LightSkyBlue" VerticalAlignment="Center" Width="200" CaretBrush="DimGray" BorderBrush="Transparent" BorderThickness="0,0,0,1" UseLayoutRounding="True"/>
+                <PasswordBox x:Name="pbJelszo" FontSize="20" Background="AliceBlue" Foreground="LightSkyBlue" VerticalAlignment="Center" Width="200" CaretBrush="DimGray" BorderBrush="Transparent" BorderThickness="0,0,0,1" UseLayoutRounding="True" PasswordChanged="pbJelszo_PasswordChanged"/>
             </StackPanel>
         </Border>
 

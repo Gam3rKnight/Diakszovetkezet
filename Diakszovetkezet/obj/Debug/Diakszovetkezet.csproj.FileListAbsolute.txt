@@ -1,9 +1,4 @@
-C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\bin\Debug\Diakszovetkezet.exe
-C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\bin\Debug\EntityFramework.dll
-C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\bin\Debug\Diakszovetkezet.exe.config
-C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\bin\Debug\EntityFramework.xml
-C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\obj\Debug\Diakszovetkezet.csprojResolveAssemblyReference.cache
 C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\obj\Debug\wndBejelentkezes.g.cs
 C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\obj\Debug\wndDiakAblak.g.cs
 C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\obj\Debug\wndRegisztracio.g.cs
@@ -12,6 +7,13 @@ C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\obj\Debug\App
 C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\obj\Debug\Diakszovetkezet_Content.g.cs
 C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\obj\Debug\Diakszovetkezet_MarkupCompile.cache
 C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\obj\Debug\Diakszovetkezet_MarkupCompile.lref
+C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\bin\Debug\Diakszovetkezet.exe.config
+C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\bin\Debug\Diakszovetkezet.exe
+C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\bin\Debug\Diakszovetkezet.pdb
+C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\bin\Debug\EntityFramework.dll
+C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\bin\Debug\EntityFramework.xml
+C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\obj\Debug\wndBejelentkezes.baml
 C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\obj\Debug\wndDiakAblak.baml
 C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\obj\Debug\wndRegisztracio.baml
