@@ -34,8 +34,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -58,7 +67,31 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Company.cs">
+      <DependentUpon>dmDiakszovetkezet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dmDiakszovetkezet.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dmDiakszovetkezet.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dmDiakszovetkezet.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dmDiakszovetkezet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dmDiakszovetkezet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dmDiakszovetkezet.edmx</DependentUpon>
+    </Compile>
     <Compile Include="structUserData.cs" />
+    <Compile Include="StudentTime.cs">
+      <DependentUpon>dmDiakszovetkezet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>dmDiakszovetkezet.tt</DependentUpon>
+    </Compile>
     <Compile Include="wndBejelentkezes.xaml.cs">
       <DependentUpon>wndBejelentkezes.xaml</DependentUpon>
     </Compile>
@@ -74,9 +107,11 @@
     <Compile Include="wndRendszerAdmin.xaml.cs">
       <DependentUpon>wndRendszerAdmin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Work.cs">
+      <DependentUpon>dmDiakszovetkezet.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -94,6 +129,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="dmDiakszovetkezet.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dmDiakszovetkezet.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="dmDiakszovetkezet.edmx.diagram">
+      <DependentUpon>dmDiakszovetkezet.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -123,6 +166,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dmDiakszovetkezet.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dmDiakszovetkezet.edmx</DependentUpon>
+      <LastGenOutput>dmDiakszovetkezet.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="dmDiakszovetkezet.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dmDiakszovetkezet.edmx</DependentUpon>
+      <LastGenOutput>dmDiakszovetkezet.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
