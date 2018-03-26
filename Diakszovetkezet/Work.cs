@@ -14,22 +14,14 @@ namespace Diakszovetkezet
     
     public partial class Work
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Work()
-        {
-            this.Users = new HashSet<User>();
-        }
-    
         public int w_id { get; set; }
         public int company_id { get; set; }
-        public System.DateTime w_datestart { get; set; }
-        public System.DateTime w_dateend { get; set; }
         public string w_description { get; set; }
         public string w_name { get; set; }
         public int s_number { get; set; }
+        public System.DateTime w_datestart { get; set; }
+        public System.DateTime w_dateend { get; set; }
     
-        public virtual Company Company { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
+        public virtual Companies Companies { get; set; }
     }
 }

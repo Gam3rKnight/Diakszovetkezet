@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DiakszovetkezetModelStoreContainer" CdmEntityContainer="DiakszovetkezetEF">
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="DiakszovetkezetModel.Companies">
+        <MappingFragment StoreEntitySet="Companies">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_name" ColumnName="c_name" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="c_description" ColumnName="c_description" />
+          <ScalarProperty Name="c_del" ColumnName="c_del" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentTime">
+      <EntityTypeMapping TypeName="DiakszovetkezetModel.StudentTime">
+        <MappingFragment StoreEntitySet="StudentTime">
+          <ScalarProperty Name="s_id" ColumnName="s_id" />
+          <ScalarProperty Name="s_username" ColumnName="s_username" />
+          <ScalarProperty Name="datestart" ColumnName="datestart" />
+          <ScalarProperty Name="dateend" ColumnName="dateend" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DiakszovetkezetModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="fname" ColumnName="fname" />
+          <ScalarProperty Name="lname" ColumnName="lname" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="del" ColumnName="del" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Work">
+      <EntityTypeMapping TypeName="DiakszovetkezetModel.Work">
+        <MappingFragment StoreEntitySet="Work">
+          <ScalarProperty Name="w_id" ColumnName="w_id" />
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
+          <ScalarProperty Name="w_description" ColumnName="w_description" />
+          <ScalarProperty Name="w_name" ColumnName="w_name" />
+          <ScalarProperty Name="s_number" ColumnName="s_number" />
+          <ScalarProperty Name="w_datestart" ColumnName="w_datestart" />
+          <ScalarProperty Name="w_dateend" ColumnName="w_dateend" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
