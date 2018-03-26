@@ -10,9 +10,9 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
             <RowDefinition Height="25"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="10"/>
             <RowDefinition Height="640"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Menu Grid.Row="1">
             <Menu.ItemsPanel>
@@ -25,10 +25,10 @@
             <MenuItem Header="Cég regisztráció" Name="miCegregisztracio" Click="miCegregisztracio_Click"/>
             <MenuItem Header="Felhasználó regisztráció" Name="miFelhasznaloregisztracio" Click="miFelhasznaloregisztracio_Click"/>
         </Menu>
-        <TabControl Grid.Row="2">
+        <TabControl Grid.Row="3">
             <TabItem Header="Munkák" Name="tiMunkak">
-                <Grid Background="White">
-                    <ListView Margin="0,0,0,30" HorizontalAlignment="Stretch" Name="lvMunkaLista" >
+                <Grid Background="White" Grid.Row="3">
+                    <ListView Margin="0,0,0,10" HorizontalAlignment="Stretch" Name="lvMunkaLista" >
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Munka neve" Width="150" DisplayMemberBinding="{Binding Munka}"/>
@@ -44,13 +44,26 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Diákok" Name="tiDiakok">
-                <Grid Background="White"/>
+                <Grid Background="White">
+                    <ListView Margin="0,0,0,10" HorizontalAlignment="Stretch" Name="lvDiakLista" >
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Felhasználónév" Width="120" DisplayMemberBinding="{Binding Munka}"/>
+                                <GridViewColumn Header="Vezetéknév" Width="120" DisplayMemberBinding="{Binding Cégnév}"/>
+                                <GridViewColumn Header="Keresztnév" Width="120" DisplayMemberBinding="{Binding Helyszín}"/>
+                                <GridViewColumn Header="E-mail cím" Width="200" DisplayMemberBinding="{Binding Helyekszáma}"/>
+                                <GridViewColumn Header="Munka kezdés" Width="150" DisplayMemberBinding="{Binding Munkakezdet}"/>
+                                <GridViewColumn Header="Munka végzés" Width="150" DisplayMemberBinding="{Binding Munkavége}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
             </TabItem>
             <TabItem Header="Munka Diák Egyeztető" Name="tiMunkaDiak">
                 <Grid Background="White"/>
             </TabItem>
         </TabControl>
-        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Stretch">
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Stretch">
             <StatusBar Name="sbAdatSav"/>
         </StackPanel>
         <Rectangle Grid.Row="0" Fill="LightSkyBlue"/>
