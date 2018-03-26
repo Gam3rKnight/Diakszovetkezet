@@ -25,3 +25,4 @@ C:\Users\Gombi\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\obj\Debug\Diaksz
 C:\Users\Gombi\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\obj\Debug\Diakszovetkezet.csproj.CoreCompileInputs.cache
 C:\Users\Gombi\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\obj\Debug\Diakszovetkezet.exe
 C:\Users\Gombi\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\obj\Debug\Diakszovetkezet.pdb
+C:\Users\Gombi\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\obj\Debug\Diakszovetkezet.csprojResolveAssemblyReference.cache
