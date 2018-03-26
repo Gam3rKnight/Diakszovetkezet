@@ -19,7 +19,9 @@
                     <StackPanel Orientation="Horizontal"/>
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
-            <MenuItem Header="Kilépés" Click="MenuItem_Click"/>
+            <MenuItem Header="Kilépés" Name="miKilepes" Click="miKilepes_Click"/>
+            <MenuItem Header="Felhasználói adatok módosítása" Name="miFelhasznaloadatmod" Click="miFelhasznaloadatmod_Click"/>
+            <MenuItem Header="Cég regisztráció" Name="miCegregisztracio" Click="miCegregisztracio_Click"/>
         </Menu>
         <TabControl Grid.Row="2">
             <TabItem Header="Munkák" Name="tiMunkak">

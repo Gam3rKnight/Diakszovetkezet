@@ -35,11 +35,25 @@ namespace Diakszovetkezet
         //Ebbe a listába fogjuk betölteni azokat az adatokat amiket a Munkák kilistázására fogunk használni.
         //<summary>
         List<lvElmenetsMunka> lElements = new List<lvElmenetsMunka>();
+        
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void miKilepes_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-        
+        //<summary>
+        //Itt egy további ablak nyílik meg ahol a felhasználók adatait tudjuk módosítani vagy törölni.
+        //<summary>
+        private void miFelhasznaloadatmod_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        //<summary>
+        //
+        //<summary>
+        private void miCegregisztracio_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
