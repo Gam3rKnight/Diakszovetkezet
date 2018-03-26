@@ -49,11 +49,20 @@ namespace Diakszovetkezet
 
         }
         //<summary>
-        //
+        //Elnavigál minket a céges regisztrációs felületre
         //<summary>
         private void miCegregisztracio_Click(object sender, RoutedEventArgs e)
         {
-
+            wndCegRegisztarcio cegRegisztarcio = new wndCegRegisztarcio();
+            cegRegisztarcio.Show();
+        }
+        //<summary>
+        //A sima felhasználói regisztrációs felülethez navigál
+        //<summary>
+        private void miFelhasznaloregisztracio_Click(object sender, RoutedEventArgs e)
+        {
+            wndRegisztracio regisztracio = new wndRegisztracio();
+            regisztracio.Show();
         }
     }
 }

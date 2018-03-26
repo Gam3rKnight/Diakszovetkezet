@@ -9,11 +9,12 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="640"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <Menu Grid.Row="0">
+        <Menu Grid.Row="1">
             <Menu.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal"/>
@@ -22,6 +23,7 @@
             <MenuItem Header="Kilépés" Name="miKilepes" Click="miKilepes_Click"/>
             <MenuItem Header="Felhasználói adatok módosítása" Name="miFelhasznaloadatmod" Click="miFelhasznaloadatmod_Click"/>
             <MenuItem Header="Cég regisztráció" Name="miCegregisztracio" Click="miCegregisztracio_Click"/>
+            <MenuItem Header="Felhasználó regisztráció" Name="miFelhasznaloregisztracio" Click="miFelhasznaloregisztracio_Click"/>
         </Menu>
         <TabControl Grid.Row="2">
             <TabItem Header="Munkák" Name="tiMunkak">
@@ -51,6 +53,8 @@
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Stretch">
             <StatusBar Name="sbAdatSav"/>
         </StackPanel>
+        <Rectangle Grid.Row="0" Fill="LightSkyBlue"/>
+        <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="27" Text="Adminisztrátori Felület" Foreground="RoyalBlue"/>
 
     </Grid>
 </Window>
