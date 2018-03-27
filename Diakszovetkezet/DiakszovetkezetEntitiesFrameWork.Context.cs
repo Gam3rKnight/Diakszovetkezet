@@ -13,10 +13,10 @@ namespace Diakszovetkezet
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DiakszovetkezetEntitiesFrameWork : DbContext
+    public partial class DiakszovetkezetEntities : DbContext
     {
-        public DiakszovetkezetEntitiesFrameWork()
-            : base("name=DiakszovetkezetEntitiesFrameWork")
+        public DiakszovetkezetEntities()
+            : base("name=DiakszovetkezetEntities")
         {
         }
     
