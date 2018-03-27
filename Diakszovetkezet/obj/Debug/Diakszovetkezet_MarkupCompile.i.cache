@@ -9,21 +9,12 @@ Diakszovetkezet
 none
 false
 DEBUG;TRACE
-<<<<<<< HEAD
 C:\Users\HP\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\App.xaml
 5936187474
-
-152035469877
-131569487696
-wndBejelentkezes.xaml;wndCegRegisztarcio.xaml;wndDiakAblak.xaml;wndRegisztracio.xaml;wndRendszerAdmin.xaml;
-=======
-C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\App.xaml
-4-9424948
 2-1349037377
-20-2091985661
-18-1767584604
-wndBejelentkezes.xaml;wndDiakAblak.xaml;wndRegisztracio.xaml;wndRendszerAdmin.xaml;
->>>>>>> master
+21-585097087
+18-28523576
+wndBejelentkezes.xaml;wndCegRegisztarcio.xaml;wndDiakAblak.xaml;wndRegisztracio.xaml;wndRendszerAdmin.xaml;
 
-True
+False
 

@@ -23,5 +23,15 @@ namespace Diakszovetkezet
         {
             InitializeComponent();
         }
+
+        private void btCegRegVissza_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btCegRegKesza_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

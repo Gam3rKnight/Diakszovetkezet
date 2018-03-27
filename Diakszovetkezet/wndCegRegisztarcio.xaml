@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Diakszovetkezet"
         mc:Ignorable="d"
-        Title="Cég regisztráció" Height="350" Width="525">
+        Title="Cég regisztráció" Height="400" Width="525">
 
     <StackPanel x:Name="MainStackPanel" Background="AliceBlue">
 
@@ -49,7 +49,7 @@
                 <ComboBoxItem Content="Betanított munka"/>
                 <ComboBoxItem Content="Oktatás"/>                
             </ComboBox>
-        </Grid>
+        </Grid>              
         
         <!--Munka leírása-->
         <Grid Margin="0,8">

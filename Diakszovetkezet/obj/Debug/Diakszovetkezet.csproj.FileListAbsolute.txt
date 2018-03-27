@@ -49,3 +49,8 @@ C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\obj\Debug\Dia
 C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\obj\Debug\Diakszovetkezet.exe
 C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\obj\Debug\Diakszovetkezet.pdb
 >>>>>>> master
+C:\Users\HP\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\bin\Debug\EntityFramework.dll
+C:\Users\HP\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\HP\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\bin\Debug\EntityFramework.xml
+C:\Users\HP\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\HP\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\obj\Debug\Diakszovetkezet_Content.g.cs
