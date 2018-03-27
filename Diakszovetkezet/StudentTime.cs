@@ -19,6 +19,6 @@ namespace Diakszovetkezet
         public System.DateTime datestart { get; set; }
         public System.DateTime dateend { get; set; }
     
-        public virtual User User { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("dmdiakszovetkezet.context.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("dmdiakszovetkezet.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("diakszovetkezetentities.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("diakszovetkezetentities.tt")]
 
 

@@ -22,6 +22,8 @@ namespace Diakszovetkezet
         bool userszabad = true;
         bool emailszabad = true;
         bool jelszoegyezik = true;
+        double errorThickness = 2.0;
+        bool jo = true;
         public wndRegisztracio()
         {
             InitializeComponent();
@@ -32,23 +34,52 @@ namespace Diakszovetkezet
             CheckFields();
             if(!userszabad)
             {
-                MessageBox.Show("A megadott felhasználónév már foglalt!\nKérem válasszon másikat!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                jo = false;
+                lbRegisztracio.Content = "A megadott felhasználónév már foglalt!";
+                bdRegisztracio.Background = new SolidColorBrush(Colors.Red);
                 tbFelhasznalonev.BorderBrush = Brushes.Red;
-                tbFelhasznalonev.BorderThickness = new Thickness(2.0);
+                tbFelhasznalonev.BorderThickness = new Thickness(errorThickness);
+                
             }
             else if(!emailszabad)
             {
-                MessageBox.Show("A megadott email cím már foglalt!\nKérem válasszon másikat!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                jo = false;
+                lbRegisztracio.Content = "A megadott email cím már foglalt!";
+                bdRegisztracio.Background = new SolidColorBrush(Colors.Red);
                 tbEmail.BorderBrush = Brushes.Red;
-                tbEmail.BorderThickness = new Thickness(2.0);
+                tbEmail.BorderThickness = new Thickness(errorThickness);
+                
             }
             else if(!jelszoegyezik)
             {
-                MessageBox.Show("A megadott jelszavak nem egyeznek!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                jo = false;
+                lbRegisztracio.Content = "A megadott jelszavak nem egyeznek!";
+                bdRegisztracio.Background = new SolidColorBrush(Colors.Red);
                 pbJelszo.BorderBrush = Brushes.Red;
-                pbJelszo.BorderThickness = new Thickness(2.0);
+                pbJelszo.BorderThickness = new Thickness(errorThickness);
                 pbJelszoujra.BorderBrush = Brushes.Red;
-                pbJelszoujra.BorderThickness = new Thickness(2.0);
+                pbJelszoujra.BorderThickness = new Thickness(errorThickness);
+            }
+            else if(jo)
+            { 
+                using (DiakszovetkezetEntities entities = new DiakszovetkezetEntities())
+                {
+                    Users uj = new Users();
+                    uj.username = tbFelhasznalonev.Text;
+                    uj.password = pbJelszo.Password;
+                    uj.email = tbEmail.Text;
+                    uj.fname = tbVeznev.Text;
+                    uj.lname = tbKernev.Text;
+                    uj.role = 1;
+                    uj.del = 0;
+                    entities.Users.Add(uj);
+                    if(entities.SaveChanges()>0)
+                    {
+                        lbRegisztracio.Content = "Sikeres regisztráció!";
+                        bdRegisztracio.Background = new SolidColorBrush(Colors.LightGreen);
+                    }
+                }
+                
             }
         }
 
@@ -56,8 +87,49 @@ namespace Diakszovetkezet
         {
             if(tbFelhasznalonev.Text == "")
             {
-                
+                lbRegisztracio.Content = "A csillaggal jelölt mezők kitöltése kötelező!";
+                bdRegisztracio.Background = new SolidColorBrush(Colors.Red);
+                tbFelhasznalonev.BorderBrush = Brushes.Red;
+                tbFelhasznalonev.BorderThickness = new Thickness(errorThickness);
+                jo = false;
             }
+            if (pbJelszo.Password == "")
+            {
+                lbRegisztracio.Content = "A csillaggal jelölt mezők kitöltése kötelező!";
+                bdRegisztracio.Background = new SolidColorBrush(Colors.Red);
+                pbJelszo.BorderBrush = Brushes.Red;
+                pbJelszo.BorderThickness = new Thickness(errorThickness);
+                jo = false;
+            }
+            if (pbJelszoujra.Password == "")
+            {
+                lbRegisztracio.Content = "A csillaggal jelölt mezők kitöltése kötelező!";
+                bdRegisztracio.Background = new SolidColorBrush(Colors.Red);
+                pbJelszoujra.BorderBrush = Brushes.Red;
+                pbJelszoujra.BorderThickness = new Thickness(errorThickness);
+                jo = false;
+            }
+            if (tbEmail.Text != "")
+            {
+                
+                string[] email = tbEmail.Text.Split('@', '.');
+                if (email.Length != 3)
+                {
+                    MessageBox.Show("Az email nem megfeleő formátumú!\nA szabványos email formátum: 'nev'@'domainnev'.'hu'", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                    tbEmail.BorderBrush = Brushes.Red;
+                    tbEmail.BorderThickness = new Thickness(errorThickness);
+                    jo = false;
+                }
+            }
+            else
+            {
+                jo = false;
+                lbRegisztracio.Content = "A csillaggal jelölt mezők kitöltése kötelező!";
+                bdRegisztracio.Background = new SolidColorBrush(Colors.Red);
+                tbEmail.BorderBrush = Brushes.Red;
+                tbEmail.BorderThickness = new Thickness(errorThickness);
+            }
+         
             using (DiakszovetkezetEntities context = new DiakszovetkezetEntities())
             {
                 var result = from u in context.Users
@@ -94,6 +166,8 @@ namespace Diakszovetkezet
             tbEmail.Clear();
             tbVeznev.Clear();
             tbKernev.Clear();
+            lbRegisztracio.Content = "Diák regisztráció";
+            bdRegisztracio.Background = new SolidColorBrush(Colors.LightSkyBlue);
         }
 
         private void pbJelszo_PasswordChanged(object sender, RoutedEventArgs e)

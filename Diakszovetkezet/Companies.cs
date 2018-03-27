@@ -12,26 +12,21 @@ namespace Diakszovetkezet
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Companies
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public Companies()
         {
-            this.StudentTimes = new HashSet<StudentTime>();
-            this.Works = new HashSet<Work>();
+            this.Work = new HashSet<Work>();
         }
     
-        public string username { get; set; }
-        public string password { get; set; }
-        public string email { get; set; }
-        public string fname { get; set; }
-        public string lname { get; set; }
-        public int role { get; set; }
-        public byte[] del { get; set; }
+        public int c_id { get; set; }
+        public string c_name { get; set; }
+        public string location { get; set; }
+        public string c_description { get; set; }
+        public int c_del { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StudentTime> StudentTimes { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Work> Works { get; set; }
+        public virtual ICollection<Work> Work { get; set; }
     }
 }

@@ -25,9 +25,9 @@ namespace Diakszovetkezet
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Company> Companies { get; set; }
-        public virtual DbSet<StudentTime> StudentTimes { get; set; }
-        public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Work> Works { get; set; }
+        public virtual DbSet<Companies> Companies { get; set; }
+        public virtual DbSet<StudentTime> StudentTime { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Work> Work { get; set; }
     }
 }

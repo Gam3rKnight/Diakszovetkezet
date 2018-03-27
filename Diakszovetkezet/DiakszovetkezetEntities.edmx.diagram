@@ -4,10 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a9fbadd7eff74a999f7458f643b99abd" Name="Diagram1">
-        <EntityTypeShape EntityType="DiakszovetkezetModel.Company" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="fe01de6aa5724a048797b2658c16b408" Name="Diagram1">
+        <EntityTypeShape EntityType="DiakszovetkezetModel.Companies" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DiakszovetkezetModel.StudentTime" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DiakszovetkezetModel.User" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DiakszovetkezetModel.Users" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DiakszovetkezetModel.Work" Width="1.5" PointX="6" PointY="3.5" IsExpanded="true" />
         <AssociationConnector Association="DiakszovetkezetModel.FK_Work_Companies" ManuallyRouted="false" />
         <AssociationConnector Association="DiakszovetkezetModel.FK_StudentTime_Users" ManuallyRouted="false" />
