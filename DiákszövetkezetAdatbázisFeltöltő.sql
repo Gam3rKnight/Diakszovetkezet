@@ -1,8 +1,9 @@
 --Ezzel szúrjuk be a felhasználókat
+DELETE FROM StudentTime;
 DELETE FROM Users;
 DELETE FROM Work;
 DELETE FROM Companies;
-DELETE FROM StudentTime;
+
 INSERT INTO Users (username,password,email,fname,lname,role,del) VALUES('fenyvesis', 'soma97', 'soma.fenyvesi@gmail.com', 'Soma', 'Fenyvesi',1,1);
 INSERT INTO Users (username,password,email,fname,lname,role,del) VALUES('szatmarib', 'bela94', 'bela.szatmari@gmail.com', 'Béla', 'Szatmári',1,1);
 INSERT INTO Users (username,password,email,fname,lname,role,del) VALUES('paksid', 'daniel97', 'daniel.paksi@gmail.com', 'Dániel', 'Paksi',1,1);
@@ -45,11 +46,10 @@ INSERT INTO Work (w_id,company_id,w_datestart,w_dateend,w_description,w_name,s_n
 INSERT INTO StudentTime (s_id, s_username, datestart,dateend) VALUES((SELECT ISNULL(MAX(s_id)+1,0)FROM StudentTime WITH(SERIALIZABLE, UPDLOCK)),'fenyvesis', '2018-03-15 06:00:00', '2018-03-21 14:00:00');
 INSERT INTO StudentTime (s_id, s_username, datestart,dateend) VALUES((SELECT ISNULL(MAX(s_id)+1,0)FROM StudentTime WITH(SERIALIZABLE, UPDLOCK)),'nemethg', '2018-03-18 08:00:00', '2018-03-20 16:20:00');
 INSERT INTO StudentTime (s_id, s_username, datestart,dateend) VALUES((SELECT ISNULL(MAX(s_id)+1,0)FROM StudentTime WITH(SERIALIZABLE, UPDLOCK)),'szatmarib', '2018-03-20 06:00:00', '2018-03-25 14:00:00');
-INSERT INTO StudentTime (s_id, s_username, datestart,dateend) VALUES((SELECT ISNULL(MAX(s_id)+1,0)FROM StudentTime WITH(SERIALIZABLE, UPDLOCK)),'nemethg', '2018-05-30 08:00:00', '2018-07-31 16:20:00');
-INSERT INTO StudentTime (s_id, s_username, datestart,dateend) VALUES((SELECT ISNULL(MAX(s_id)+1,0)FROM StudentTime WITH(SERIALIZABLE, UPDLOCK)),'tothj', '2018-03-17 06:00:00', '2018-03-25 14:00:00');
+INSERT INTO StudentTime (s_id, s_username, datestart,dateend) VALUES((SELECT ISNULL(MAX(s_id)+1,0)FROM StudentTime WITH(SERIALIZABLE, UPDLOCK)),'kissj', '2018-05-30 08:00:00', '2018-07-31 16:20:00');
+INSERT INTO StudentTime (s_id, s_username, datestart,dateend) VALUES((SELECT ISNULL(MAX(s_id)+1,0)FROM StudentTime WITH(SERIALIZABLE, UPDLOCK)),'tothd', '2018-03-17 06:00:00', '2018-03-25 14:00:00');
 INSERT INTO StudentTime (s_id, s_username, datestart,dateend) VALUES((SELECT ISNULL(MAX(s_id)+1,0)FROM StudentTime WITH(SERIALIZABLE, UPDLOCK)),'nagyb', '2018-05-30 08:00:00', '2018-08-19 16:20:00');
 INSERT INTO StudentTime (s_id, s_username, datestart,dateend) VALUES((SELECT ISNULL(MAX(s_id)+1,0)FROM StudentTime WITH(SERIALIZABLE, UPDLOCK)),'szaboa', '2018-04-30 14:00:00', '2018-05-06 22:00:00');
 INSERT INTO StudentTime (s_id, s_username, datestart,dateend) VALUES((SELECT ISNULL(MAX(s_id)+1,0)FROM StudentTime WITH(SERIALIZABLE, UPDLOCK)),'telekit', '2018-04-08 06:00:00', '2018-04-18 14:00:00');
 INSERT INTO StudentTime (s_id, s_username, datestart,dateend) VALUES((SELECT ISNULL(MAX(s_id)+1,0)FROM StudentTime WITH(SERIALIZABLE, UPDLOCK)),'baranyia', '2018-04-01 06:00:00', '2018-04-18 14:00:00');
 INSERT INTO StudentTime (s_id, s_username, datestart,dateend) VALUES((SELECT ISNULL(MAX(s_id)+1,0)FROM StudentTime WITH(SERIALIZABLE, UPDLOCK)),'paksid', '2018-03-10 06:00:00', '2018-03-21 14:00:00');
-INSERT INTO StudentTime (s_id, s_username, datestart,dateend) VALUES((SELECT ISNULL(MAX(s_id)+1,0)FROM StudentTime WITH(SERIALIZABLE, UPDLOCK)),'fenyvesis', '2018-06-01 06:00:00', '2018-06-30 14:00:00');

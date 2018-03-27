@@ -45,7 +45,7 @@ namespace Diakszovetkezet
 
         private void CheckFields()
         {
-            using (DiakszovetkezetEF context = new DiakszovetkezetEF())
+            using (DiakszovetkezetEntitiesFrameWork context = new DiakszovetkezetEntitiesFrameWork())
             {
                 var result = from u in context.Users
                              select u;

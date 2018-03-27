@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DiakszovetkezetModelStoreContainer" CdmEntityContainer="DiakszovetkezetEF">
+  <EntityContainerMapping StorageEntityContainer="DiakszovetkezetModelStoreContainer" CdmEntityContainer="DiakszovetkezetEntityFrame">
     <EntitySetMapping Name="Companies">
       <EntityTypeMapping TypeName="DiakszovetkezetModel.Companies">
         <MappingFragment StoreEntitySet="Companies">
@@ -40,13 +40,21 @@
         <MappingFragment StoreEntitySet="Work">
           <ScalarProperty Name="w_id" ColumnName="w_id" />
           <ScalarProperty Name="company_id" ColumnName="company_id" />
+          <ScalarProperty Name="w_datestart" ColumnName="w_datestart" />
+          <ScalarProperty Name="w_dateend" ColumnName="w_dateend" />
           <ScalarProperty Name="w_description" ColumnName="w_description" />
           <ScalarProperty Name="w_name" ColumnName="w_name" />
           <ScalarProperty Name="s_number" ColumnName="s_number" />
-          <ScalarProperty Name="w_datestart" ColumnName="w_datestart" />
-          <ScalarProperty Name="w_dateend" ColumnName="w_dateend" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <AssociationSetMapping Name="StudentWork" TypeName="DiakszovetkezetModel.StudentWork" StoreEntitySet="StudentWork">
+      <EndProperty Name="Users">
+        <ScalarProperty Name="username" ColumnName="student_id" />
+      </EndProperty>
+      <EndProperty Name="Work">
+        <ScalarProperty Name="w_id" ColumnName="work_id" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -40,7 +40,7 @@ namespace Diakszovetkezet
         {
             if (tbFelhasznalonev.Text != "" && pbJelszo.Password != "")
             {
-                using (DiakszovetkezetEF context = new DiakszovetkezetEF())
+                using (DiakszovetkezetEntitiesFrameWork context = new DiakszovetkezetEntitiesFrameWork())
                 {
                     var result = from u in context.Users
                                  select u;
@@ -55,7 +55,7 @@ namespace Diakszovetkezet
                             user.email = u.email;
                             user.firstName = u.fname;
                             user.lastName = u.lname;
-                            user.role = u.role.Value;
+                            user.role = u.role;
                         }
                     }
                     if (vane && user.role == 1)

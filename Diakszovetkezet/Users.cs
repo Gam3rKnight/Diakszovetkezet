@@ -18,6 +18,7 @@ namespace Diakszovetkezet
         public Users()
         {
             this.StudentTime = new HashSet<StudentTime>();
+            this.Work = new HashSet<Work>();
         }
     
         public string username { get; set; }
@@ -25,10 +26,12 @@ namespace Diakszovetkezet
         public string email { get; set; }
         public string fname { get; set; }
         public string lname { get; set; }
-        public Nullable<int> role { get; set; }
+        public int role { get; set; }
         public Nullable<int> del { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StudentTime> StudentTime { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Work> Work { get; set; }
     }
 }
