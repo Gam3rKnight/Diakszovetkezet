@@ -139,7 +139,7 @@ namespace Diakszovetkezet
             {
                 var result = from u in context.Users
                              join st in context.StudentTime on u.username equals st.s_username
-                             where u.role == 1 && u.del == 1
+                            where u.role == 1 && u.del == 1
                              select new { u, st };
 
                 foreach (var x in result)
@@ -156,9 +156,28 @@ namespace Diakszovetkezet
 
                     });
                 }
+
+                var result1 = from w in context.Work join c in context.Companies on w.company_id equals c.c_id
+                              where c.c_del == 1
+                              select new {w, c };
+                foreach (var d in result1)
+                {
+                    lElementsMunka.Add(new lvElmenetsMunka() {
+
+                        Munka = d.w.w_name,
+                        Cégnév = d.w.w_name,
+                        Helyszín = d.c.location,
+                        Helyekszáma = d.w.s_number.ToString(),
+                        Munkakezdet = d.w.w_datestart.ToString(),
+                        Munkavége = d.w.w_dateend.ToString(),
+                        Munkakör = d.c.c_description
+                    });
+                }
+
             }
             lvDiakLista.ItemsSource = lElementsDiak;
 
+            
 
         }
     }

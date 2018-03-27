@@ -74,7 +74,7 @@
                                 <GridViewColumn Header="Keresztnév" Width="120" DisplayMemberBinding="{Binding Keresztnév}"/>
                                 <GridViewColumn Header="E-mail cím" Width="200" DisplayMemberBinding="{Binding Email}"/>
                                 <GridViewColumn Header="Munka kezdés" Width="150" DisplayMemberBinding="{Binding Munkakezdés}"/>
-                                <GridViewColumn Header="Munka végzés" Width="150" DisplayMemberBinding="{Binding Munkavégéz}"/>
+                                <GridViewColumn Header="Munka végzés" Width="150" DisplayMemberBinding="{Binding Munkavégzés}"/>
                             </GridView>
                         </ListView.View>
                     </ListView>
