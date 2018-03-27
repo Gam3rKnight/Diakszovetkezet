@@ -68,29 +68,29 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Companies.cs">
-      <DependentUpon>DiakszovetkezetEnt.tt</DependentUpon>
+      <DependentUpon>DiakszovetkezetEntitiesFrameWork.tt</DependentUpon>
     </Compile>
-    <Compile Include="DiakszovetkezetEnt.Context.cs">
+    <Compile Include="DiakszovetkezetEntitiesFrameWork.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DiakszovetkezetEnt.Context.tt</DependentUpon>
+      <DependentUpon>DiakszovetkezetEntitiesFrameWork.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DiakszovetkezetEnt.cs">
+    <Compile Include="DiakszovetkezetEntitiesFrameWork.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DiakszovetkezetEnt.tt</DependentUpon>
+      <DependentUpon>DiakszovetkezetEntitiesFrameWork.tt</DependentUpon>
     </Compile>
-    <Compile Include="DiakszovetkezetEnt.Designer.cs">
+    <Compile Include="DiakszovetkezetEntitiesFrameWork.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DiakszovetkezetEnt.edmx</DependentUpon>
+      <DependentUpon>DiakszovetkezetEntitiesFrameWork.edmx</DependentUpon>
     </Compile>
     <Compile Include="structUserData.cs" />
     <Compile Include="StudentTime.cs">
-      <DependentUpon>DiakszovetkezetEnt.tt</DependentUpon>
+      <DependentUpon>DiakszovetkezetEntitiesFrameWork.tt</DependentUpon>
     </Compile>
     <Compile Include="Users.cs">
-      <DependentUpon>DiakszovetkezetEnt.tt</DependentUpon>
+      <DependentUpon>DiakszovetkezetEntitiesFrameWork.tt</DependentUpon>
     </Compile>
     <Compile Include="wndBejelentkezes.xaml.cs">
       <DependentUpon>wndBejelentkezes.xaml</DependentUpon>
@@ -108,7 +108,7 @@
       <DependentUpon>wndRendszerAdmin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Work.cs">
-      <DependentUpon>DiakszovetkezetEnt.tt</DependentUpon>
+      <DependentUpon>DiakszovetkezetEntitiesFrameWork.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -129,12 +129,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="DiakszovetkezetEnt.edmx">
+    <EntityDeploy Include="DiakszovetkezetEntitiesFrameWork.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DiakszovetkezetEnt.Designer.cs</LastGenOutput>
+      <LastGenOutput>DiakszovetkezetEntitiesFrameWork.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DiakszovetkezetEnt.edmx.diagram">
-      <DependentUpon>DiakszovetkezetEnt.edmx</DependentUpon>
+    <None Include="DiakszovetkezetEntitiesFrameWork.edmx.diagram">
+      <DependentUpon>DiakszovetkezetEntitiesFrameWork.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -171,15 +171,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DiakszovetkezetEnt.Context.tt">
+    <Content Include="DiakszovetkezetEntitiesFrameWork.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DiakszovetkezetEnt.edmx</DependentUpon>
-      <LastGenOutput>DiakszovetkezetEnt.Context.cs</LastGenOutput>
+      <DependentUpon>DiakszovetkezetEntitiesFrameWork.edmx</DependentUpon>
+      <LastGenOutput>DiakszovetkezetEntitiesFrameWork.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DiakszovetkezetEnt.tt">
+    <Content Include="DiakszovetkezetEntitiesFrameWork.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DiakszovetkezetEnt.edmx</DependentUpon>
-      <LastGenOutput>DiakszovetkezetEnt.cs</LastGenOutput>
+      <DependentUpon>DiakszovetkezetEntitiesFrameWork.edmx</DependentUpon>
+      <LastGenOutput>DiakszovetkezetEntitiesFrameWork.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
