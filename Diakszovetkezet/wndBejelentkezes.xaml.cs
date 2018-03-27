@@ -16,14 +16,14 @@ using System.Windows.Shapes;
 
 namespace Diakszovetkezet
 {
-    
+
     public partial class wndBejelentkezes : Window
     {
         private structUserData user;
         wndDiakAblak wndDiak;
         wndRendszerAdmin wndAdmin;
         wndRegisztracio wndReg;
-      
+
         public wndBejelentkezes()
         {
             InitializeComponent();
@@ -35,12 +35,12 @@ namespace Diakszovetkezet
             get { return user; }
             set { user = value; }
         }
-
-        private void btBejelentkezes_Click(object sender, RoutedEventArgs e)
+        
+        private void BejelentkezesFunkcio()
         {
             if (tbFelhasznalonev.Text != "" && pbJelszo.Password != "")
             {
-                using (DiakszovetkezetEntities context = new DiakszovetkezetEntities())
+                using (DiakszovetkezetEntitiesFrameWork context = new DiakszovetkezetEntitiesFrameWork())
                 {
                     var result = from u in context.Users
                                  select u;
@@ -81,7 +81,7 @@ namespace Diakszovetkezet
             else
             {
                 MessageBox.Show("Nem megfelelően töltötte ki a megjelölt mezőket!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
-                if(tbFelhasznalonev.Text=="")
+                if (tbFelhasznalonev.Text == "")
                 {
                     tbFelhasznalonev.BorderBrush = Brushes.Red;
                     tbFelhasznalonev.BorderThickness = new Thickness(2.0);
@@ -93,6 +93,11 @@ namespace Diakszovetkezet
                     pbJelszo.BorderThickness = new Thickness(2.0);
                 }
             }
+        }
+        
+        private void btBejelentkezes_Click(object sender, RoutedEventArgs e)
+        {
+            BejelentkezesFunkcio();
         }
         protected override void OnClosing(CancelEventArgs e)
         {
@@ -120,6 +125,14 @@ namespace Diakszovetkezet
             wndReg = new wndRegisztracio();
             wndReg.Closing += Window_Closing;
             wndReg.ShowDialog();
+        }
+
+        private void MainGrid_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                BejelentkezesFunkcio();
+            }
         }
     }
 }

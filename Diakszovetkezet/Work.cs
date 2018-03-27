@@ -17,7 +17,7 @@ namespace Diakszovetkezet
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Work()
         {
-            this.Users = new HashSet<User>();
+            this.Users = new HashSet<Users>();
         }
     
         public int w_id { get; set; }
@@ -28,8 +28,8 @@ namespace Diakszovetkezet
         public string w_name { get; set; }
         public int s_number { get; set; }
     
-        public virtual Company Company { get; set; }
+        public virtual Companies Companies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<Users> Users { get; set; }
     }
 }

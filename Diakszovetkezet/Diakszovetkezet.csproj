@@ -67,30 +67,56 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Company.cs">
-      <DependentUpon>dmDiakszovetkezet.tt</DependentUpon>
+    <Compile Include="Companies.cs">
+<<<<<<< HEAD
+      <DependentUpon>DiakszovetkezetEnt.tt</DependentUpon>
     </Compile>
-    <Compile Include="dmDiakszovetkezet.Context.cs">
+    <Compile Include="DiakszovetkezetEnt.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dmDiakszovetkezet.Context.tt</DependentUpon>
+      <DependentUpon>DiakszovetkezetEnt.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="dmDiakszovetkezet.cs">
+    <Compile Include="DiakszovetkezetEnt.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dmDiakszovetkezet.tt</DependentUpon>
+      <DependentUpon>DiakszovetkezetEnt.tt</DependentUpon>
     </Compile>
-    <Compile Include="dmDiakszovetkezet.Designer.cs">
+    <Compile Include="DiakszovetkezetEnt.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dmDiakszovetkezet.edmx</DependentUpon>
+      <DependentUpon>DiakszovetkezetEnt.edmx</DependentUpon>
     </Compile>
     <Compile Include="structUserData.cs" />
     <Compile Include="StudentTime.cs">
-      <DependentUpon>dmDiakszovetkezet.tt</DependentUpon>
+      <DependentUpon>DiakszovetkezetEnt.tt</DependentUpon>
     </Compile>
-    <Compile Include="User.cs">
-      <DependentUpon>dmDiakszovetkezet.tt</DependentUpon>
+    <Compile Include="Users.cs">
+      <DependentUpon>DiakszovetkezetEnt.tt</DependentUpon>
+=======
+      <DependentUpon>DiakszovetkezetEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DiakszovetkezetEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DiakszovetkezetEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DiakszovetkezetEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DiakszovetkezetEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DiakszovetkezetEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DiakszovetkezetEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="structUserData.cs" />
+    <Compile Include="StudentTime.cs">
+      <DependentUpon>DiakszovetkezetEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Users.cs">
+      <DependentUpon>DiakszovetkezetEntities.tt</DependentUpon>
+>>>>>>> Béla
     </Compile>
     <Compile Include="wndBejelentkezes.xaml.cs">
       <DependentUpon>wndBejelentkezes.xaml</DependentUpon>
@@ -108,7 +134,11 @@
       <DependentUpon>wndRendszerAdmin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Work.cs">
-      <DependentUpon>dmDiakszovetkezet.tt</DependentUpon>
+<<<<<<< HEAD
+      <DependentUpon>DiakszovetkezetEnt.tt</DependentUpon>
+=======
+      <DependentUpon>DiakszovetkezetEntities.tt</DependentUpon>
+>>>>>>> Béla
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -129,12 +159,21 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="dmDiakszovetkezet.edmx">
+<<<<<<< HEAD
+    <EntityDeploy Include="DiakszovetkezetEnt.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>dmDiakszovetkezet.Designer.cs</LastGenOutput>
+      <LastGenOutput>DiakszovetkezetEnt.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="dmDiakszovetkezet.edmx.diagram">
-      <DependentUpon>dmDiakszovetkezet.edmx</DependentUpon>
+    <None Include="DiakszovetkezetEnt.edmx.diagram">
+      <DependentUpon>DiakszovetkezetEnt.edmx</DependentUpon>
+=======
+    <EntityDeploy Include="DiakszovetkezetEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DiakszovetkezetEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DiakszovetkezetEntities.edmx.diagram">
+      <DependentUpon>DiakszovetkezetEntities.edmx</DependentUpon>
+>>>>>>> Béla
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -171,15 +210,27 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="dmDiakszovetkezet.Context.tt">
+<<<<<<< HEAD
+    <Content Include="DiakszovetkezetEnt.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dmDiakszovetkezet.edmx</DependentUpon>
-      <LastGenOutput>dmDiakszovetkezet.Context.cs</LastGenOutput>
+      <DependentUpon>DiakszovetkezetEnt.edmx</DependentUpon>
+      <LastGenOutput>DiakszovetkezetEnt.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="dmDiakszovetkezet.tt">
+    <Content Include="DiakszovetkezetEnt.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dmDiakszovetkezet.edmx</DependentUpon>
-      <LastGenOutput>dmDiakszovetkezet.cs</LastGenOutput>
+      <DependentUpon>DiakszovetkezetEnt.edmx</DependentUpon>
+      <LastGenOutput>DiakszovetkezetEnt.cs</LastGenOutput>
+=======
+    <Content Include="DiakszovetkezetEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DiakszovetkezetEntities.edmx</DependentUpon>
+      <LastGenOutput>DiakszovetkezetEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DiakszovetkezetEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DiakszovetkezetEntities.edmx</DependentUpon>
+      <LastGenOutput>DiakszovetkezetEntities.cs</LastGenOutput>
+>>>>>>> Béla
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
