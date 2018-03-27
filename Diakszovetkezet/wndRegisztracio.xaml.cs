@@ -21,6 +21,7 @@ namespace Diakszovetkezet
     {
         bool userszabad = true;
         bool emailszabad = true;
+        bool jelszoegyezik = true;
         public wndRegisztracio()
         {
             InitializeComponent();
@@ -41,10 +42,22 @@ namespace Diakszovetkezet
                 tbEmail.BorderBrush = Brushes.Red;
                 tbEmail.BorderThickness = new Thickness(2.0);
             }
+            else if(!jelszoegyezik)
+            {
+                MessageBox.Show("A megadott jelszavak nem egyeznek!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                pbJelszo.BorderBrush = Brushes.Red;
+                pbJelszo.BorderThickness = new Thickness(2.0);
+                pbJelszoujra.BorderBrush = Brushes.Red;
+                pbJelszoujra.BorderThickness = new Thickness(2.0);
+            }
         }
 
         private void CheckFields()
         {
+            if(tbFelhasznalonev.Text == "")
+            {
+                
+            }
             using (DiakszovetkezetEntities context = new DiakszovetkezetEntities())
             {
                 var result = from u in context.Users
@@ -56,6 +69,7 @@ namespace Diakszovetkezet
                     if (u.email == tbEmail.Text) emailszabad = false;
                 }
             }
+            if (pbJelszo.Password != pbJelszoujra.Password) jelszoegyezik = false;
         }
 
         private void tbFelhasznalonev_TextChanged(object sender, TextChangedEventArgs e)
@@ -70,6 +84,30 @@ namespace Diakszovetkezet
             tbEmail.BorderBrush = Brushes.Transparent;
             tbEmail.BorderThickness = new Thickness(0, 0, 0, 1);
             emailszabad = true;
+        }
+
+        private void btUrit_Click(object sender, RoutedEventArgs e)
+        {
+            tbFelhasznalonev.Clear();
+            pbJelszo.Clear();
+            pbJelszoujra.Clear();
+            tbEmail.Clear();
+            tbVeznev.Clear();
+            tbKernev.Clear();
+        }
+
+        private void pbJelszo_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            pbJelszo.BorderBrush = Brushes.Transparent;
+            pbJelszo.BorderThickness = new Thickness(0, 0, 0, 1);
+            jelszoegyezik = true;
+        }
+
+        private void pbJelszoujra_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            pbJelszoujra.BorderBrush = Brushes.Transparent;
+            pbJelszoujra.BorderThickness = new Thickness(0, 0, 0, 1);
+            jelszoegyezik = true;
         }
     }
 }
