@@ -9,11 +9,16 @@
 //------------------------------------------------------------------------------
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("diakszovetkezetent.context.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("diakszovetkezetent.tt")]
 =======
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("diakszovetkezetentities.context.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("diakszovetkezetentities.tt")]
 >>>>>>> Béla
+=======
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("diakszovetkezetentitiesframework.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("diakszovetkezetentitiesframework.tt")]
+>>>>>>> Gábor
 
 
