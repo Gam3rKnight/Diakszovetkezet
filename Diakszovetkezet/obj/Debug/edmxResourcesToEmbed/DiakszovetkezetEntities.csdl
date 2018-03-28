@@ -8,13 +8,8 @@
     <Property Name="c_name" Type="String" MaxLength="130" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="location" Type="String" MaxLength="180" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="c_description" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-<<<<<<< HEAD:Diakszovetkezet/obj/Debug/edmxResourcesToEmbed/dmDiakszovetkezet.csdl
     <Property Name="c_del" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Works" Relationship="Self.FK_Work_Companies" FromRole="Companies" ToRole="Work" />
-=======
-    <Property Name="c_del" Type="Binary" MaxLength="50" FixedLength="true" Nullable="false" />
     <NavigationProperty Name="Work" Relationship="Self.FK_Work_Companies" FromRole="Companies" ToRole="Work" />
->>>>>>> Gábor:Diakszovetkezet/obj/Debug/edmxResourcesToEmbed/DiakszovetkezetEntities.csdl
   </EntityType>
   <EntityType Name="StudentTime">
     <Key>
@@ -36,15 +31,9 @@
     <Property Name="fname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="lname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="role" Type="Int32" Nullable="false" />
-<<<<<<< HEAD:Diakszovetkezet/obj/Debug/edmxResourcesToEmbed/dmDiakszovetkezet.csdl
     <Property Name="del" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="StudentTimes" Relationship="Self.FK_StudentTime_Users" FromRole="Users" ToRole="StudentTime" />
-    <NavigationProperty Name="Works" Relationship="Self.StudentWork" FromRole="Users" ToRole="Work" />
-=======
-    <Property Name="del" Type="Binary" MaxLength="50" FixedLength="true" Nullable="false" />
     <NavigationProperty Name="StudentTime" Relationship="Self.FK_StudentTime_Users" FromRole="Users" ToRole="StudentTime" />
     <NavigationProperty Name="Work" Relationship="Self.StudentWork" FromRole="Users" ToRole="Work" />
->>>>>>> Gábor:Diakszovetkezet/obj/Debug/edmxResourcesToEmbed/DiakszovetkezetEntities.csdl
   </EntityType>
   <EntityType Name="Work">
     <Key>
@@ -88,7 +77,7 @@
     <End Role="Users" Type="Self.Users" Multiplicity="*" />
     <End Role="Work" Type="Self.Work" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="DiakszovetkezetEntityFrame" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="DiakszovetkezetEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Companies" EntityType="Self.Companies" />
     <EntitySet Name="StudentTime" EntityType="Self.StudentTime" />
     <EntitySet Name="Users" EntityType="Self.Users" />

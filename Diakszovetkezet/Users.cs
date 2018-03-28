@@ -27,11 +27,7 @@ namespace Diakszovetkezet
         public string fname { get; set; }
         public string lname { get; set; }
         public int role { get; set; }
-<<<<<<< HEAD:Diakszovetkezet/Users.cs
         public int del { get; set; }
-=======
-        public Nullable<int> del { get; set; }
->>>>>>> Gábor:Diakszovetkezet/Users.cs
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StudentTime> StudentTime { get; set; }
