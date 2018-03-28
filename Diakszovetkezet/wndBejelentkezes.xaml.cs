@@ -40,7 +40,7 @@ namespace Diakszovetkezet
         {
             if (tbFelhasznalonev.Text != "" && pbJelszo.Password != "")
             {
-                using (DiakszovetkezetEntities context = new DiakszovetkezetEntities())
+                using (DiakszovetkezetEntitiesFrameWork context = new DiakszovetkezetEntitiesFrameWork())
                 {
                     var result = from u in context.Users
                                  select u;
