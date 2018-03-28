@@ -69,6 +69,7 @@
     </Compile>
     <Compile Include="Companies.cs">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <DependentUpon>DiakszovetkezetEnt.tt</DependentUpon>
     </Compile>
     <Compile Include="DiakszovetkezetEnt.Context.cs">
@@ -93,6 +94,8 @@
     <Compile Include="Users.cs">
       <DependentUpon>DiakszovetkezetEnt.tt</DependentUpon>
 =======
+=======
+>>>>>>> Béla
       <DependentUpon>DiakszovetkezetEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="DiakszovetkezetEntities.Context.cs">
@@ -116,13 +119,13 @@
     </Compile>
     <Compile Include="Users.cs">
       <DependentUpon>DiakszovetkezetEntities.tt</DependentUpon>
+<<<<<<< HEAD
+>>>>>>> Béla
+=======
 >>>>>>> Béla
     </Compile>
     <Compile Include="wndBejelentkezes.xaml.cs">
       <DependentUpon>wndBejelentkezes.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="wndCegRegisztarcio.xaml.cs">
-      <DependentUpon>wndCegRegisztarcio.xaml</DependentUpon>
     </Compile>
     <Compile Include="wndDiakAblak.xaml.cs">
       <DependentUpon>wndDiakAblak.xaml</DependentUpon>
@@ -135,7 +138,11 @@
     </Compile>
     <Compile Include="Work.cs">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <DependentUpon>DiakszovetkezetEnt.tt</DependentUpon>
+=======
+      <DependentUpon>DiakszovetkezetEntities.tt</DependentUpon>
+>>>>>>> Béla
 =======
       <DependentUpon>DiakszovetkezetEntities.tt</DependentUpon>
 >>>>>>> Béla
@@ -160,6 +167,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <EntityDeploy Include="DiakszovetkezetEnt.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DiakszovetkezetEnt.Designer.cs</LastGenOutput>
@@ -167,12 +175,17 @@
     <None Include="DiakszovetkezetEnt.edmx.diagram">
       <DependentUpon>DiakszovetkezetEnt.edmx</DependentUpon>
 =======
+=======
+>>>>>>> Béla
     <EntityDeploy Include="DiakszovetkezetEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DiakszovetkezetEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="DiakszovetkezetEntities.edmx.diagram">
       <DependentUpon>DiakszovetkezetEntities.edmx</DependentUpon>
+<<<<<<< HEAD
+>>>>>>> Béla
+=======
 >>>>>>> Béla
     </None>
     <None Include="packages.config" />
@@ -188,10 +201,6 @@
     <Page Include="wndBejelentkezes.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="wndCegRegisztarcio.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="wndDiakAblak.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -211,6 +220,7 @@
   </ItemGroup>
   <ItemGroup>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Content Include="DiakszovetkezetEnt.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DiakszovetkezetEnt.edmx</DependentUpon>
@@ -221,6 +231,8 @@
       <DependentUpon>DiakszovetkezetEnt.edmx</DependentUpon>
       <LastGenOutput>DiakszovetkezetEnt.cs</LastGenOutput>
 =======
+=======
+>>>>>>> Béla
     <Content Include="DiakszovetkezetEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DiakszovetkezetEntities.edmx</DependentUpon>
@@ -230,6 +242,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DiakszovetkezetEntities.edmx</DependentUpon>
       <LastGenOutput>DiakszovetkezetEntities.cs</LastGenOutput>
+<<<<<<< HEAD
+>>>>>>> Béla
+=======
 >>>>>>> Béla
     </Content>
   </ItemGroup>

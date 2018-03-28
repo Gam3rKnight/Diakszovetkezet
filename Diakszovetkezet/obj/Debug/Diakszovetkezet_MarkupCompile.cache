@@ -4,11 +4,12 @@
 winexe
 C#
 .cs
-C:\Users\Gombi\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\obj\Debug\
+C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\obj\Debug\
 Diakszovetkezet
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 <<<<<<< HEAD
 C:\Users\Gombi\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\App.xaml
 5936187474
@@ -17,13 +18,18 @@ C:\Users\Gombi\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\App.xaml
 181502321131
 wndBejelentkezes.xaml;wndCegRegisztarcio.xaml;wndDiakAblak.xaml;wndRegisztracio.xaml;wndRendszerAdmin.xaml;
 =======
+=======
+>>>>>>> Béla
 C:\Users\Maverick\Documents\GitHub\Diakszovetkezet\Diakszovetkezet\App.xaml
 4-9424948
 2-1267493232
-16-719785127
+20869102978
 18-1767584604
 wndBejelentkezes.xaml;wndDiakAblak.xaml;wndRegisztracio.xaml;wndRendszerAdmin.xaml;
+<<<<<<< HEAD
+>>>>>>> Béla
+=======
 >>>>>>> Béla
 
-False
+True
 

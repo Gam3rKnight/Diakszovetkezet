@@ -24,11 +24,15 @@ namespace Diakszovetkezet
         public string c_name { get; set; }
         public string location { get; set; }
         public string c_description { get; set; }
+<<<<<<< HEAD
 <<<<<<< HEAD:Diakszovetkezet/Companies.cs
         public Nullable<int> c_del { get; set; }
 =======
         public int c_del { get; set; }
 >>>>>>> Béla:Diakszovetkezet/Companies.cs
+=======
+        public int c_del { get; set; }
+>>>>>>> Béla
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Work> Work { get; set; }

@@ -8,7 +8,11 @@
     <Property Name="c_name" Type="varchar" MaxLength="130" Nullable="false" />
     <Property Name="location" Type="varchar" MaxLength="180" Nullable="false" />
     <Property Name="c_description" Type="varchar" MaxLength="300" />
+<<<<<<< HEAD
     <Property Name="c_del" Type="binary" MaxLength="50" Nullable="false" />
+=======
+    <Property Name="c_del" Type="int" Nullable="false" />
+>>>>>>> Béla
   </EntityType>
   <EntityType Name="StudentTime">
     <Key>
@@ -37,7 +41,11 @@
     <Property Name="fname" Type="varchar" MaxLength="50" />
     <Property Name="lname" Type="varchar" MaxLength="50" />
     <Property Name="role" Type="int" Nullable="false" />
+<<<<<<< HEAD
     <Property Name="del" Type="binary" MaxLength="50" Nullable="false" />
+=======
+    <Property Name="del" Type="int" Nullable="false" />
+>>>>>>> Béla
   </EntityType>
   <EntityType Name="Work">
     <Key>
