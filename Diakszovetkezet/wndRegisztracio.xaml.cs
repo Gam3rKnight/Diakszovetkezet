@@ -86,7 +86,6 @@ namespace Diakszovetkezet
         private void CheckFields()
         {
 <<<<<<< HEAD
-<<<<<<< HEAD
             using (DiakszovetkezetEntitiesFrameWork context = new DiakszovetkezetEntitiesFrameWork())
 =======
             if(tbFelhasznalonev.Text == "")
@@ -136,9 +135,6 @@ namespace Diakszovetkezet
          
             using (DiakszovetkezetEntities context = new DiakszovetkezetEntities())
 >>>>>>> Béla
-=======
-            using (DiakszovetkezetEntities context = new DiakszovetkezetEntities())
->>>>>>> Gábor
             {
                 var result = from u in context.Users
                              select u;
