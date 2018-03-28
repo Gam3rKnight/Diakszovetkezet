@@ -29,38 +29,17 @@ namespace Diakszovetkezet
         //<summary>
         class lvElmenetsMunka
         {
-            public string Munka { get; set; }
-            public string Cégnév { get; set; }
-            public string Helyszín { get; set; }
-            public string Helyekszáma { get; set; }
-            public string Munkakezdet { get; set; }
-            public string Munkavége { get; set; }
-            public string Munkakör { get; set; }
-
+            string Munka, Cégnév, Helyszín, Helyekszáma, Munkakezdet, Munkavége, Munkakör; 
         }
 
         class lvElmenetsDiak
         {
-            public string Felhasználónév { get; set; }
-            public string Vezetéknév { get; set; }
-            public string Keresztnév { get; set; }
-            public string Email { get; set; }
-            public string Munkakezdés { get; set; }
-            public string Munkavégzés { get; set; }
+            string Felhasználónév, Vezetéknév, Keresztnév, Email, Munkakezdés, Munkavégzés;
         }
 
         class lvElmenetsDiakMunka
         {
-            public string Felhasználónév { get; set; }
-            public string Vezeték { get; set; }
-            public string Kereszt { get; set; }
-            public string Cégnév { get; set; }
-            public string Helyszín { get; set; }
-            public string Helyekszáma { get; set; }
-            public string DiákMunkakezdete { get; set; }
-            public string DiákMunkavége { get; set; }
-            public string CégMunkakezdete { get; set; }
-            public string CégMunkavége { get; set; }
+            string Felhasználónév, Vezetéknév, Keresztnév, Cégnév, Helyszín, Helyekszáma, DiákMunkakezdete, DiákMunkavége, CégMunkakezdete, CégMunkavége;
         }
 
         //<summary>
@@ -108,11 +87,11 @@ namespace Diakszovetkezet
 
         private void miFrissites_Click(object sender, RoutedEventArgs e)
         {
-
+           
 
             ListakFeltoltese();
         }
-
+        
         //<summary>
         //Ha jobbklikkel kattintunk a listába akkor megjelenik egy legördülő menü(contextmenü) amiben további funkciók vannak
         //<summary>
@@ -134,51 +113,21 @@ namespace Diakszovetkezet
 
         private void ListakFeltoltese()
         {
-
-            using (DiakszovetkezetEntities context = new DiakszovetkezetEntities())
+           
+            using (DiakszovetkezetEntitiesFrameWork context = new DiakszovetkezetEntitiesFrameWork())
             {
-                var result = from u in context.Users
-                             join st in context.StudentTime on u.username equals st.s_username
-                            where u.role == 1 && u.del == 1
-                             select new { u, st };
-
-                foreach (var x in result)
+                var result = from u in context.Users join st in context.StudentTime on u.username equals st.s_username where u.role == 1 && u.del == 1
+                             select new {u, st};
+                foreach(var x in result )
                 {
-                    lElementsDiak.Add(new lvElmenetsDiak()
-                    {
-                        Felhasználónév = x.u.username,
-                        Vezetéknév = x.u.fname,
-                        Keresztnév = x.u.lname,
-                        Email = x.u.email,
-                        Munkakezdés = x.st.datestart.ToString(),
-                        Munkavégzés = x.st.dateend.ToString()
-
+                    lElementsDiak.Add(new lvElmenetsDiak() {
+                        
 
                     });
                 }
-
-                var result1 = from w in context.Work join c in context.Companies on w.company_id equals c.c_id
-                              where c.c_del == 1
-                              select new {w, c };
-                foreach (var d in result1)
-                {
-                    lElementsMunka.Add(new lvElmenetsMunka() {
-
-                        Munka = d.w.w_name,
-                        Cégnév = d.w.w_name,
-                        Helyszín = d.c.location,
-                        Helyekszáma = d.w.s_number.ToString(),
-                        Munkakezdet = d.w.w_datestart.ToString(),
-                        Munkavége = d.w.w_dateend.ToString(),
-                        Munkakör = d.c.c_description
-                    });
-                }
-
             }
-            lvDiakLista.ItemsSource = lElementsDiak;
 
-            
-
-        }
+     
+     
     }
 }

@@ -209,7 +209,7 @@
           <End Role="Users" Type="Self.Users" Multiplicity="*" />
           <End Role="Work" Type="Self.Work" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="DiakszovetkezetEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DiakszovetkezetEntitiesFrameWork" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Companies" EntityType="Self.Companies" />
           <EntitySet Name="StudentTime" EntityType="Self.StudentTime" />
           <EntitySet Name="Users" EntityType="Self.Users" />
@@ -232,7 +232,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DiakszovetkezetModelStoreContainer" CdmEntityContainer="DiakszovetkezetEntities">
+        <EntityContainerMapping StorageEntityContainer="DiakszovetkezetModelStoreContainer" CdmEntityContainer="DiakszovetkezetEntitiesFrameWork">
           <EntitySetMapping Name="Companies">
             <EntityTypeMapping TypeName="DiakszovetkezetModel.Companies">
               <MappingFragment StoreEntitySet="Companies">
