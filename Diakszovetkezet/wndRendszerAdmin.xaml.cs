@@ -147,8 +147,8 @@ namespace Diakszovetkezet
                     lElementsDiak.Add(new lvElmenetsDiak()
                     {
                         Felhasználónév = x.u.username,
-                        Vezetéknév = x.u.fname,
-                        Keresztnév = x.u.lname,
+                        Vezetéknév = x.u.lname,
+                        Keresztnév = x.u.fname,
                         Email = x.u.email,
                         Munkakezdés = x.st.datestart.ToString(),
                         Munkavégzés = x.st.dateend.ToString()
@@ -165,16 +165,17 @@ namespace Diakszovetkezet
                     lElementsMunka.Add(new lvElmenetsMunka() {
 
                         Munka = d.w.w_name,
-                        Cégnév = d.w.w_name,
+                        Cégnév = d.c.c_name,
                         Helyszín = d.c.location,
                         Helyekszáma = d.w.s_number.ToString(),
                         Munkakezdet = d.w.w_datestart.ToString(),
                         Munkavége = d.w.w_dateend.ToString(),
-                        Munkakör = d.c.c_description
+                        Munkakör = d.w.w_description
                     });
                 }
 
             }
+            lvMunkaLista.ItemsSource = lElementsMunka;
             lvDiakLista.ItemsSource = lElementsDiak;
 
             

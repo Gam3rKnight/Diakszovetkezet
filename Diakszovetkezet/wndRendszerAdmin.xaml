@@ -42,8 +42,8 @@
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Munka neve" Width="150" DisplayMemberBinding="{Binding Munka}"/>
-                                <GridViewColumn Header="Cég neve" Width="120" DisplayMemberBinding="{Binding Cégnév}"/>
-                                <GridViewColumn Header="Helyszín" Width="250" DisplayMemberBinding="{Binding Helyszín}"/>
+                                <GridViewColumn Header="Cég neve" Width="300" DisplayMemberBinding="{Binding Cégnév}"/>
+                                <GridViewColumn Header="Helyszín" Width="100" DisplayMemberBinding="{Binding Helyszín}"/>
                                 <GridViewColumn Header="Helyek száma" Width="100" DisplayMemberBinding="{Binding Helyekszáma}"/>
                                 <GridViewColumn Header="Munka kezdete" Width="130" DisplayMemberBinding="{Binding Munkakezdet}"/>
                                 <GridViewColumn Header="Munka vége" Width="130" DisplayMemberBinding="{Binding Munkavége}"/>
