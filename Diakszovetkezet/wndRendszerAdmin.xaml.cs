@@ -29,11 +29,95 @@ namespace Diakszovetkezet
         class lvElmenetsMunka
         {
             string Munka, Cégnév, Helyszín, Helyekszáma, Munkakezdet, Munkavége, Munkakör; 
+<<<<<<< HEAD
+        }
+
+        class lvElmenetsDiak
+        {
+            string Felhasználónév, Vezetéknév, Keresztnév, Email, Munkakezdés, Munkavégzés;
+        }
+
+        class lvElmenetsDiakMunka
+        {
+            string Felhasználónév, Vezetéknév, Keresztnév, Cégnév, Helyszín, Helyekszáma, DiákMunkakezdete, DiákMunkavége, CégMunkakezdete, CégMunkavége;
+        }
+
+        //<summary>
+        //Ebbe a listába fogjuk betölteni azokat az adatokat amiket a listview-ba fogunk betölteni.
+        //<summary>
+        List<lvElmenetsMunka> lElementsMunka = new List<lvElmenetsMunka>();
+        List<lvElmenetsDiak> lElementsDiak = new List<lvElmenetsDiak>();
+        List<lvElmenetsDiakMunka> lElementsDiakMunka = new List<lvElmenetsDiakMunka>();
+
+
+
+        private void miKilepes_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+=======
+>>>>>>> Béla
         }
 
         //<summary>
         //Ebbe a listába fogjuk betölteni azokat az adatokat amiket a Munkák kilistázására fogunk használni.
         //<summary>
         List<lvElmenetsMunka> lElements = new List<lvElmenetsMunka>();
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+<<<<<<< HEAD
+            wndDiakAblak diakAblak = new wndDiakAblak();
+            diakAblak.Show();
+        }
+
+        private void miFrissites_Click(object sender, RoutedEventArgs e)
+        {
+           
+
+            ListakFeltoltese();
+        }
+        
+        //<summary>
+        //Ha jobbklikkel kattintunk a listába akkor megjelenik egy legördülő menü(contextmenü) amiben további funkciók vannak
+        //<summary>
+        private void lvDiákMunkaLista_ContextMenuOpening(object sender, ContextMenuEventArgs e)
+        {
+            OpenContextMenu(ContextMenuMunkaName);
+            OpenContextMenu(ContextMenuDiakName);
+            OpenContextMenu(ContextMenuDiakMunkaName);
+        }
+
+        private void OpenContextMenu(FrameworkElement element)
+        {
+            if (element.ContextMenu != null)
+            {
+                element.ContextMenu.PlacementTarget = element;
+                element.ContextMenu.IsOpen = true;
+            }
+        }
+
+        private void ListakFeltoltese()
+        {
+           
+            using (DiakszovetkezetEntitiesFrameWork context = new DiakszovetkezetEntitiesFrameWork())
+            {
+                var result = from u in context.Users join st in context.StudentTime on u.username equals st.s_username where u.role == 1 && u.del == 1
+                             select new {u, st};
+                foreach(var x in result )
+                {
+                    lElementsDiak.Add(new lvElmenetsDiak() {
+                        
+
+                    });
+                }
+            }
+
+     
+     
+=======
+            this.Close();
+        }
+        
+>>>>>>> Béla
     }
 }
