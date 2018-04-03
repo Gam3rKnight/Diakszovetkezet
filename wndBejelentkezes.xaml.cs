@@ -36,7 +36,7 @@ namespace Diakszovetkezet
             set { user = value; }
         }
 
-        private void btBejelentkezes_Click(object sender, RoutedEventArgs e)
+        private void BejelentkezesFolyamat()
         {
             if (tbFelhasznalonev.Text != "" && pbJelszo.Password != "")
             {
@@ -81,7 +81,7 @@ namespace Diakszovetkezet
             else
             {
                 MessageBox.Show("Nem megfelelően töltötte ki a megjelölt mezőket!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
-                if(tbFelhasznalonev.Text=="")
+                if (tbFelhasznalonev.Text == "")
                 {
                     tbFelhasznalonev.BorderBrush = Brushes.Red;
                     tbFelhasznalonev.BorderThickness = new Thickness(2.0);
@@ -93,6 +93,11 @@ namespace Diakszovetkezet
                     pbJelszo.BorderThickness = new Thickness(2.0);
                 }
             }
+        }
+
+        private void btBejelentkezes_Click(object sender, RoutedEventArgs e)
+        {
+            BejelentkezesFolyamat();
         }
         protected override void OnClosing(CancelEventArgs e)
         {
@@ -120,6 +125,14 @@ namespace Diakszovetkezet
             wndReg = new wndRegisztracio();
             wndReg.Closing += Window_Closing;
             wndReg.ShowDialog();
+        }
+
+        private void grLoginGrid_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                BejelentkezesFolyamat();
+            }
         }
     }
 }
