@@ -49,18 +49,23 @@ namespace Diakszovetkezet
             public string Munkavégzés { get; set; }
         }
 
-        class lvElmenetsDiakMunka
+        class lvElmenetsEgyeztetMunka
         {
-            public string Felhasználónév { get; set; }
-            public string Vezeték { get; set; }
-            public string Kereszt { get; set; }
+            public string ID { get; set; }
             public string Cégnév { get; set; }
             public string Helyszín { get; set; }
             public string Helyekszáma { get; set; }
-            public string DiákMunkakezdete { get; set; }
-            public string DiákMunkavége { get; set; }
             public string CégMunkakezdete { get; set; }
             public string CégMunkavége { get; set; }
+        }
+
+        class lvElmenetsEgyeztetDiak
+        {
+            public string Felhasználónév { get; set; }
+            public string Vezetéknév { get; set; }
+            public string Keresztnév { get; set; }
+            public string Diákkezdete { get; set; }
+            public string Diákvége { get; set; }
         }
 
         //<summary>
@@ -68,7 +73,8 @@ namespace Diakszovetkezet
         //<summary>
         List<lvElmenetsMunka> lElementsMunka = new List<lvElmenetsMunka>();
         List<lvElmenetsDiak> lElementsDiak = new List<lvElmenetsDiak>();
-        List<lvElmenetsDiakMunka> lElementsDiakMunka = new List<lvElmenetsDiakMunka>();
+        List<lvElmenetsEgyeztetMunka> lElementsEgyeztetMunkaLista = new List<lvElmenetsEgyeztetMunka>();
+        List<lvElmenetsEgyeztetDiak> lElementsEgyeztetDiakLista = new List<lvElmenetsEgyeztetDiak>();
 
 
 
@@ -108,9 +114,13 @@ namespace Diakszovetkezet
 
         private void miFrissites_Click(object sender, RoutedEventArgs e)
         {
-
-
             ListakFeltoltese();
+        }
+
+        private void miKimutatasok_Click(object sender, RoutedEventArgs e)
+        {
+            wndKimutatasok kimutatasok = new wndKimutatasok();
+            kimutatasok.ShowDialog();
         }
 
         //<summary>
@@ -120,15 +130,100 @@ namespace Diakszovetkezet
         {
             OpenContextMenu(ContextMenuMunkaName);
             OpenContextMenu(ContextMenuDiakName);
-            OpenContextMenu(ContextMenuDiakMunkaName);
+            OpenContextMenu(ContextMenuEgyezDiakName);
+            OpenContextMenu(ContextMenuEgyezMunkaName);
         }
 
+        private void lvEgyezDiákLista_ContextMenuOpening(object sender, ContextMenuEventArgs e)
+        {
+            OpenContextMenu(ContextMenuMunkaName);
+            OpenContextMenu(ContextMenuDiakName);
+            OpenContextMenu(ContextMenuEgyezDiakName);
+            OpenContextMenu(ContextMenuEgyezMunkaName);
+        }
+
+        private void lvEgyezMunkaLista_ContextMenuOpening(object sender, ContextMenuEventArgs e)
+        {
+            OpenContextMenu(ContextMenuMunkaName);
+            OpenContextMenu(ContextMenuDiakName);
+            OpenContextMenu(ContextMenuEgyezDiakName);
+            OpenContextMenu(ContextMenuEgyezMunkaName);
+        }
+
+        //<summary>
+        //A contextmenu meghívása az element alapján
+        //<summary>
         private void OpenContextMenu(FrameworkElement element)
         {
             if (element.ContextMenu != null)
             {
                 element.ContextMenu.PlacementTarget = element;
                 element.ContextMenu.IsOpen = true;
+            }
+        }
+
+        //<summary>
+        //A keresés box clearelése beírása és leütésenkénti keresés sql-ből
+        //<summary>
+        private void tbCegKereses_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (tbCegKereses.Text == "Cég keresés")
+            {
+                tbCegKereses.Text = "";
+                tbCegKereses.Foreground = new SolidColorBrush(Colors.Black);
+            }
+        }
+
+        private void tbCegKereses_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (tbCegKereses.Text == "")
+            {
+                tbCegKereses.Text = "Cég keresés";
+                tbCegKereses.Foreground = new SolidColorBrush(Colors.Gray);
+            }
+        }
+
+        private void tbCegKereses_KeyDown(object sender, KeyEventArgs e)
+        {
+            using (DiakszovetkezetEntities context = new DiakszovetkezetEntities())
+            {
+                lElementsEgyeztetMunkaLista.Clear();
+                lElementsMunka.Clear();
+
+                var result1 = from w in context.Work
+                              join c in context.Companies on w.company_id equals c.c_id
+                              where c.c_del == 1 && c.c_name.StartsWith(tbCegKereses.Text) || c.c_name.EndsWith(tbCegKereses.Text)
+                              select new { w, c };
+
+                foreach (var d in result1)
+                {
+                    lElementsMunka.Add(new lvElmenetsMunka()
+                    {
+
+                        Munka = d.w.w_name,
+                        Cégnév = d.c.c_name,
+                        Helyszín = d.c.location,
+                        Helyekszáma = d.w.s_number.ToString(),
+                        Munkakezdet = d.w.w_datestart.ToString(),
+                        Munkavége = d.w.w_dateend.ToString(),
+                        Munkakör = d.c.c_description
+                    });
+
+                    lElementsEgyeztetMunkaLista.Add(new lvElmenetsEgyeztetMunka()
+                    {
+                        ID = d.c.c_id.ToString(),
+                        Cégnév = d.c.c_name,
+                        Helyszín = d.c.location,
+                        Helyekszáma = d.w.s_number.ToString(),
+                        CégMunkakezdete = d.w.w_datestart.ToShortDateString(),
+                        CégMunkavége = d.w.w_dateend.ToShortDateString()
+
+                    });
+                }
+                lvEgyezMunkaLista.ItemsSource = null;
+                lvMunkaLista.ItemsSource = null;
+                lvMunkaLista.ItemsSource = lElementsMunka;
+                lvEgyezMunkaLista.ItemsSource = lElementsEgyeztetMunkaLista;
             }
         }
 
@@ -141,6 +236,11 @@ namespace Diakszovetkezet
                              join st in context.StudentTime on u.username equals st.s_username
                             where u.role == 1 && u.del == 1
                              select new { u, st };
+
+                lElementsEgyeztetMunkaLista.Clear();
+                lElementsEgyeztetDiakLista.Clear();
+                lElementsMunka.Clear();
+                lElementsDiak.Clear();
 
                 foreach (var x in result)
                 {
@@ -155,6 +255,17 @@ namespace Diakszovetkezet
 
 
                     });
+
+                    lElementsEgyeztetDiakLista.Add(new lvElmenetsEgyeztetDiak()
+                    {
+                        Felhasználónév = x.u.username,
+                        Vezetéknév = x.u.lname,
+                        Keresztnév = x.u.fname,
+                        Diákkezdete = x.st.datestart.ToShortDateString(),
+                        Diákvége = x.st.dateend.ToShortDateString()
+                    });
+
+
                 }
 
                 var result1 = from w in context.Work join c in context.Companies on w.company_id equals c.c_id
@@ -165,27 +276,87 @@ namespace Diakszovetkezet
                     lElementsMunka.Add(new lvElmenetsMunka() {
 
                         Munka = d.w.w_name,
-                        Cégnév = d.w.w_name,
+                        Cégnév = d.c.c_name,
                         Helyszín = d.c.location,
                         Helyekszáma = d.w.s_number.ToString(),
                         Munkakezdet = d.w.w_datestart.ToString(),
                         Munkavége = d.w.w_dateend.ToString(),
                         Munkakör = d.c.c_description
                     });
+
+                    lElementsEgyeztetMunkaLista.Add(new lvElmenetsEgyeztetMunka()
+                    {
+                        ID = d.c.c_id.ToString(),
+                        Cégnév = d.c.c_name,
+                        Helyszín = d.c.location,
+                        Helyekszáma = d.w.s_number.ToString(),
+                        CégMunkakezdete = d.w.w_datestart.ToShortDateString(),
+                        CégMunkavége = d.w.w_dateend.ToShortDateString()
+
+                    });
                 }
 
+                
+
             }
+            lvDiakLista.ItemsSource = null;
             lvDiakLista.ItemsSource = lElementsDiak;
+            lvEgyezDiákLista.ItemsSource = null;
+            lvEgyezDiákLista.ItemsSource = lElementsEgyeztetDiakLista;
+            lvMunkaLista.ItemsSource = null;
             lvMunkaLista.ItemsSource = lElementsMunka;
+            lvEgyezMunkaLista.ItemsSource = null;
+            lvEgyezMunkaLista.ItemsSource = lElementsEgyeztetMunkaLista;
             
-
         }
 
-        private void miKimutatasok_Click(object sender, RoutedEventArgs e)
+        private void miDiakIdoMunkaCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            wndKimutatasok kimutatasok = new wndKimutatasok();
-            kimutatasok.ShowDialog();
+            using (DiakszovetkezetEntities context = new DiakszovetkezetEntities())
+            {
+                lElementsEgyeztetDiakLista.Clear();
+
+                var selectedObj = lvEgyezMunkaLista.SelectedItems[0] as lvElmenetsEgyeztetMunka;
+
+                var result1 = from w in context.Work
+                              join c in context.Companies on w.company_id equals c.c_id
+                              where c.c_del == 1 && c.c_id.ToString() == selectedObj.ID
+                              select new { w, c };
+
+                var result2 = from u in context.Users
+                              join st in context.StudentTime on u.username equals st.s_username
+                              where u.del == 1
+                              select new { u, st };
+
+                foreach (var d in result1)
+                {
+                    foreach (var x in result2)
+                    {
+                        if (d.w.w_dateend >= x.st.dateend && d.w.w_datestart <= x.st.datestart)
+                        {
+                            lElementsEgyeztetDiakLista.Add(new lvElmenetsEgyeztetDiak()
+                            {
+                                Felhasználónév = x.u.username,
+                                Vezetéknév = x.u.lname,
+                                Keresztnév = x.u.fname,
+                                Diákkezdete = x.st.datestart.ToShortDateString(),
+                                Diákvége = x.st.dateend.ToShortDateString()
+                            });
+                        }
+
+                    }
+                }
+
+
+
+            }
+
+            lvEgyezDiákLista.ItemsSource = null;
+
+            lvEgyezDiákLista.ItemsSource = lElementsEgyeztetDiakLista;
         }
+
+      
 
         private void ErtesitesCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -233,6 +404,16 @@ namespace Diakszovetkezet
         }
 
         private void imgErtesitesHarang_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+        
+        private void IdopontmodDiakCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+        
+        private void miIdopontfoglalDiakCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
         }
