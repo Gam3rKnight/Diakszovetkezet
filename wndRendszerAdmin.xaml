@@ -21,7 +21,6 @@
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
             <MenuItem Header="Kilépés" Name="miKilepes" Click="miKilepes_Click" BorderBrush="LightSkyBlue"/>
-            <MenuItem Header="Felhasználói adatok módosítása" Name="miFelhasznaloadatmod" Click="miFelhasznaloadatmod_Click" BorderBrush="LightSkyBlue"/>
             <MenuItem Header="Cég regisztráció" Name="miCegregisztracio" Click="miCegregisztracio_Click" BorderBrush="LightSkyBlue"/>
             <MenuItem Header="Felhasználó regisztráció" Name="miFelhasznaloregisztracio" Click="miFelhasznaloregisztracio_Click" BorderBrush="LightSkyBlue"/>
             <MenuItem Header="Diák főablak" Name="miDiakfoablak" Click="miDiakfoablak_Click" BorderBrush="LightSkyBlue"/>
@@ -56,9 +55,9 @@
                         <ContextMenu Name="ContextMenuMunkaName" Grid.Row="3">
                             <ContextMenu.ItemsSource>
                                 <CompositeCollection>
-                                    <MenuItem Header="Értesítési üzenet" Name="ErtesitesCommand"  />
-                                    <MenuItem Header="Munka törlése" Name="MunkatorolComman"/>
-                                    <MenuItem Header="Munka módosítása" Name="MunkamodCommand"/>
+                                    <MenuItem Header="Értesítési üzenet" Name="ErtesitesCommand" PreviewMouseLeftButtonDown="ErtesitesCommand_PreviewMouseLeftButtonDown" />
+                                    <MenuItem Header="Munka törlése" Name="MunkatorolComman" PreviewMouseLeftButtonDown="MunkatorolComman_PreviewMouseLeftButtonDown"/>
+                                    <MenuItem Header="Munka módosítása" Name="MunkamodCommand" PreviewMouseLeftButtonDown="MunkamodCommand_PreviewMouseLeftButtonDown"/>
                                 </CompositeCollection>
                             </ContextMenu.ItemsSource>
                         </ContextMenu>
@@ -83,8 +82,8 @@
                         <ContextMenu Name="ContextMenuDiakName" Grid.Row="3">
                             <ContextMenu.ItemsSource>
                                 <CompositeCollection>
-                                    <MenuItem Header="Értesítési üzenet" Name="EretesitCommand"  />
-                                    <MenuItem Header="Időpont módosítás" Name="IdopontmodCommand"/>
+                                    <MenuItem Header="Értesítési üzenet" Name="EretesitCommand" PreviewMouseLeftButtonDown="EretesitCommand_PreviewMouseLeftButtonDown"  />
+                                    <MenuItem Header="Időpont módosítás" Name="IdopontmodCommand" PreviewMouseLeftButtonDown="IdopontmodCommand_PreviewMouseLeftButtonDown"/>
                                 </CompositeCollection>
                             </ContextMenu.ItemsSource>
                         </ContextMenu>
@@ -114,10 +113,10 @@
                         <ContextMenu Name="ContextMenuDiakMunkaName" Grid.Row="3">
                             <ContextMenu.ItemsSource>
                                 <CompositeCollection>
-                                    <MenuItem Header="Értesítési üzenet" Name="EretesitesekCommand"  />
-                                    <MenuItem Header="Időpont módosítás" Name="IdopontokmodCommand"/>
-                                    <MenuItem Header="Időpont összeegyeztetés" Name="IdopontosszeCommand"/>
-                                    <MenuItem Header="Munka lefoglalása" Name="MunkafoglalasCommand"/>
+                                    <MenuItem Header="Értesítési üzenet" Name="EretesitesekCommand" PreviewMouseLeftButtonDown="EretesitesekCommand_PreviewMouseLeftButtonDown"  />
+                                    <MenuItem Header="Időpont módosítás" Name="IdopontokmodCommand" PreviewMouseLeftButtonDown="IdopontokmodCommand_PreviewMouseLeftButtonDown"/>
+                                    <MenuItem Header="Időpont összeegyeztetés" Name="IdopontosszeCommand" PreviewMouseLeftButtonDown ="IdopontosszeCommand_PreviewMouseLeftButtonDown"/>
+                                    <MenuItem Header="Munka lefoglalása" Name="MunkafoglalasCommand" PreviewMouseLeftButtonDown="MunkafoglalasCommand_PreviewMouseLeftButtonDown"/>
                                 </CompositeCollection>
                             </ContextMenu.ItemsSource>
                         </ContextMenu>
@@ -126,7 +125,8 @@
             </TabItem>
         </TabControl>
         <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Stretch">
-            <StatusBar Name="sbAdatSav"/>
+            <Image Width="40" Margin="5" Source="bell.jpg" Name="imgErtesitesHarang" PreviewMouseLeftButtonDown="imgErtesitesHarang_PreviewMouseLeftButtonDown"/>
+            <TextBlock Text="0" Width="20" FontSize="30" TextAlignment="Center" Name="tbErtesitesSzam"/>
         </StackPanel>
         <Rectangle Grid.Row="0" Fill="LightSkyBlue"/>
         <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="27" Text="Adminisztrátori Felület" Foreground="RoyalBlue"/>

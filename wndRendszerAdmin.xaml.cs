@@ -231,5 +231,10 @@ namespace Diakszovetkezet
         {
 
         }
+
+        private void imgErtesitesHarang_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }
