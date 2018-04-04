@@ -85,9 +85,6 @@ namespace Diakszovetkezet
 
         private void CheckFields()
         {
-<<<<<<< HEAD
-            using (DiakszovetkezetEntitiesFrameWork context = new DiakszovetkezetEntitiesFrameWork())
-=======
             if(tbFelhasznalonev.Text == "")
             {
                 lbRegisztracio.Content = "A csillaggal jelölt mezők kitöltése kötelező!";
@@ -134,7 +131,6 @@ namespace Diakszovetkezet
             }
          
             using (DiakszovetkezetEntities context = new DiakszovetkezetEntities())
->>>>>>> Béla
             {
                 var result = from u in context.Users
                              select u;

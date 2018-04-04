@@ -20,7 +20,7 @@ namespace Diakszovetkezet
     public partial class wndBejelentkezes : Window
     {
         private structUserData user;
-        wndDiakAblak wndDiak;
+        wndTanulo wndDiak;
         wndRendszerAdmin wndAdmin;
         wndRegisztracio wndReg;
       
@@ -36,11 +36,11 @@ namespace Diakszovetkezet
             set { user = value; }
         }
 
-        private void btBejelentkezes_Click(object sender, RoutedEventArgs e)
+        private void BejelentkezesFolyamat()
         {
             if (tbFelhasznalonev.Text != "" && pbJelszo.Password != "")
             {
-                using (DiakszovetkezetEntitiesFrameWork context = new DiakszovetkezetEntitiesFrameWork())
+                using (DiakszovetkezetEntities context = new DiakszovetkezetEntities())
                 {
                     var result = from u in context.Users
                                  select u;
@@ -60,7 +60,7 @@ namespace Diakszovetkezet
                     }
                     if (vane && user.role == 1)
                     {
-                        wndDiak = new wndDiakAblak();
+                        wndDiak = new wndTanulo();
                         wndDiak.Closing += Window_Closing;
                         wndDiak.ShowDialog();
                         tbFelhasznalonev.Clear();
@@ -81,7 +81,7 @@ namespace Diakszovetkezet
             else
             {
                 MessageBox.Show("Nem megfelelően töltötte ki a megjelölt mezőket!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
-                if(tbFelhasznalonev.Text=="")
+                if (tbFelhasznalonev.Text == "")
                 {
                     tbFelhasznalonev.BorderBrush = Brushes.Red;
                     tbFelhasznalonev.BorderThickness = new Thickness(2.0);
@@ -93,6 +93,11 @@ namespace Diakszovetkezet
                     pbJelszo.BorderThickness = new Thickness(2.0);
                 }
             }
+        }
+
+        private void btBejelentkezes_Click(object sender, RoutedEventArgs e)
+        {
+            BejelentkezesFolyamat();
         }
         protected override void OnClosing(CancelEventArgs e)
         {
@@ -120,6 +125,14 @@ namespace Diakszovetkezet
             wndReg = new wndRegisztracio();
             wndReg.Closing += Window_Closing;
             wndReg.ShowDialog();
+        }
+
+        private void grLoginGrid_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                BejelentkezesFolyamat();
+            }
         }
     }
 }
