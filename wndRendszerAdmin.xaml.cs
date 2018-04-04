@@ -176,7 +176,6 @@ namespace Diakszovetkezet
 
             }
             lvDiakLista.ItemsSource = lElementsDiak;
-          //  lvDiákMunkaLista.ItemsSource = lElementsDiakMunka;
             lvMunkaLista.ItemsSource = lElementsMunka;
             
 
@@ -186,6 +185,56 @@ namespace Diakszovetkezet
         {
             wndKimutatasok kimutatasok = new wndKimutatasok();
             kimutatasok.ShowDialog();
+        }
+
+        private void ErtesitesCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void MunkatorolComman_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void MunkamodCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void EretesitCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void IdopontmodCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void EretesitesekCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void IdopontokmodCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void IdopontosszeCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void MunkafoglalasCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void imgErtesitesHarang_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }
