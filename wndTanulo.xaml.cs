@@ -28,5 +28,22 @@ namespace Diakszovetkezet
         {
 
         }
+
+        public bool ErtesitesAblak(string Kiiras)
+        {
+
+            var result = MessageBox.Show(Kiiras, "Értesítés", MessageBoxButton.YesNo);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                MessageBox.Show("Sikeresen elfogadta a munkát!", "Elfogadva");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
     }
 }

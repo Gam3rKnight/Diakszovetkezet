@@ -24,6 +24,8 @@ namespace Diakszovetkezet
             InitializeComponent();
         }
 
+        private int ID;
+
         //<summary>
         //Modell osztály szükséges a listview listáinak feltöltéséhez
         //<summary>
@@ -75,9 +77,7 @@ namespace Diakszovetkezet
         List<lvElmenetsDiak> lElementsDiak = new List<lvElmenetsDiak>();
         List<lvElmenetsEgyeztetMunka> lElementsEgyeztetMunkaLista = new List<lvElmenetsEgyeztetMunka>();
         List<lvElmenetsEgyeztetDiak> lElementsEgyeztetDiakLista = new List<lvElmenetsEgyeztetDiak>();
-
-
-
+        
         private void miKilepes_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
@@ -347,6 +347,7 @@ namespace Diakszovetkezet
                     }
                 }
 
+                ID = Convert.ToInt32(selectedObj.ID);
 
 
             }
@@ -356,7 +357,46 @@ namespace Diakszovetkezet
             lvEgyezDiákLista.ItemsSource = lElementsEgyeztetDiakLista;
         }
 
-      
+        private void miIdopontfoglalDiakCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+            wndTanulo wndTanulo = new wndTanulo();
+            wndTanulo.Show();
+
+            var selectedObj = lvEgyezDiákLista.SelectedItems[0] as lvElmenetsEgyeztetDiak;
+
+            using (DiakszovetkezetEntities context = new DiakszovetkezetEntities())
+            {
+                var result = from w in context.Work
+                              join c in context.Companies on w.company_id equals c.c_id
+                              where c.c_del == 1 && c.c_id == ID
+                              select new { w, c };
+
+                string kiiras = "";
+                int id_work = 0;
+                foreach (var d in result)
+                {
+                    id_work = d.w.w_id;
+                    kiiras = "A "+d.c.c_name+" cégnél, ebben a munkakörben "+d.w.w_description+". Ezen a helyszínen: "+d.c.location+". Ebben a z időpontban: "+d.w.w_datestart+"-tól "+d.w.w_dateend+"-ig. \n Van számodra egy munka lehetőség. Érdekel? ";
+                }
+
+                
+                if (wndTanulo.ErtesitesAblak(kiiras) == true)
+                {
+                    using (DiakszovetkezetEntities entities = new DiakszovetkezetEntities())
+                    {
+                        StudentWork stuj = new StudentWork();
+                        stuj.student_id = selectedObj.Felhasználónév;
+                        stuj.work_id = id_work;
+                        stuj.sw_date = DateTime.Now;
+                        stuj.sw_del = 1;
+                        entities.StudentWork.Add(stuj);
+                        entities.SaveChanges();
+                    }
+                }
+            
+            }
+        }
 
         private void ErtesitesCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -413,9 +453,6 @@ namespace Diakszovetkezet
 
         }
         
-        private void miIdopontfoglalDiakCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
+      
     }
 }

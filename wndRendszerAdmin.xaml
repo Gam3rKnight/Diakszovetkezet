@@ -92,12 +92,8 @@
             </TabItem>
             <TabItem Header="Munka Diák Egyeztető" Name="tiMunkaDiak">
                 <Grid Background="White">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="600"/>
-                        <ColumnDefinition Width="40"/>
-                        <ColumnDefinition Width="625"/>
-                    </Grid.ColumnDefinitions>
-                    <ListView Margin="0,0,0,10" HorizontalAlignment="Stretch" Grid.Column="0" Name="lvEgyezMunkaLista" ContextMenuOpening="lvEgyezMunkaLista_ContextMenuOpening" >
+                  
+                    <ListView Margin="0,0,0,10" HorizontalAlignment="Left" Name="lvEgyezMunkaLista" ContextMenuOpening="lvEgyezMunkaLista_ContextMenuOpening" >
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="ID" Width="20" DisplayMemberBinding="{Binding ID}"/>
@@ -120,7 +116,7 @@
                         </ListView.ContextMenu>
                     </ListView>
 
-                    <ListView Margin="0,0,0,10" HorizontalAlignment="Stretch" Grid.Column="2" Name="lvEgyezDiákLista" ContextMenuOpening="lvEgyezDiákLista_ContextMenuOpening" >
+                    <ListView Margin="0,0,0,10" HorizontalAlignment="Right" Name="lvEgyezDiákLista" ContextMenuOpening="lvEgyezDiákLista_ContextMenuOpening" >
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Felhasználónév" Width="90" DisplayMemberBinding="{Binding Felhasználónév}"/>
