@@ -165,7 +165,7 @@
                         <ContextMenu Name="ContextMenuFoglaltName" Grid.Row="3">
                             <ContextMenu.ItemsSource>
                                 <CompositeCollection>
-                                    <MenuItem Header="Foglalás Törlése" Name="miFolalTorolCommand" PreviewMouseLeftButtonDown="ErtesitesCommand_PreviewMouseLeftButtonDown" />
+                                    <MenuItem Header="Foglalás Törlése" Name="miFolalTorolCommand" PreviewMouseLeftButtonDown="miFoglalTorolCommand_PreviewMouseLeftButtonDown" />
                                 </CompositeCollection>
                             </ContextMenu.ItemsSource>
                         </ContextMenu>
