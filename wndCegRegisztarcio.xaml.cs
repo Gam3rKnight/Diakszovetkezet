@@ -19,6 +19,12 @@ namespace Diakszovetkezet
     /// </summary>
     public partial class wndCegRegisztarcio : Window
     {
+        bool cegszabad = true;
+        bool telephelycim = true;
+        bool leiras = true;        
+        double errorThickness = 2.0;
+        bool jo = true;
+
         public wndCegRegisztarcio()
         {
             InitializeComponent();
@@ -26,12 +32,97 @@ namespace Diakszovetkezet
 
         private void btCegRegVissza_Click(object sender, RoutedEventArgs e)
         {
+            wndRendszerAdmin rendszerAdmin = new wndRendszerAdmin();
+            rendszerAdmin.Show();
+        }
+
+        private void btCegRegKesz_Click(object sender, RoutedEventArgs e)
+        {
+            CheckFields();
+            if (!cegszabad)
+            {
+                jo = false;
+                lbAlcim.Content = "A megadott cégnév már foglalt!";
+                bdCegReg.Background = new SolidColorBrush(Colors.Red);
+                tbCegNev.BorderBrush = Brushes.Red;
+                tbCegNev.BorderThickness = new Thickness(errorThickness);
+            }
+            else if (!telephelycim)
+            {
+                jo = false;
+                lbAlcim.Content = "A megadott telephely már foglalt!";
+                bdCegReg.Background = new SolidColorBrush(Colors.Red);
+                tbCegTelephely.BorderBrush = Brushes.Red;
+                tbCegTelephely.BorderThickness = new Thickness(errorThickness);
+
+            }
+
+            else if (jo)
+            {
+                using (DiakszovetkezetEntitiesFrameWork entities = new DiakszovetkezetEntitiesFrameWork())
+                {
+                    Companies uj = new Companies();
+                    uj.c_name = tbCegNev.Text;
+                    uj.location = tbCegTelephely.Text;
+                    uj.c_description = tbCegLeiras.Text;
+                    uj.c_del = 0;
+                    entities.Companies.Add(uj);
+                    //entities.SaveChanges();
+                    if (entities.SaveChanges() > 0)
+                    {
+                        lbAlcim.Content = "Sikeres regisztráció!";
+                        bdCegReg.Background = new SolidColorBrush(Colors.LightGreen);
+                    }
+                }
+
+            }
 
         }
 
-        private void btCegRegKesza_Click(object sender, RoutedEventArgs e)
+        private void CheckFields()
         {
+            if (tbCegNev.Text == "")
+            {
+                lbAlcim.Content = "A csillaggal jelölt mezők kitöltése kötelező!";
+                bdCegReg.Background = new SolidColorBrush(Colors.Red);
+                tbCegNev.BorderBrush = Brushes.Red;
+                tbCegNev.BorderThickness = new Thickness(errorThickness);
+                jo = false;
+            }
+            if (tbCegTelephely.Text == "")
+            {
+                lbAlcim.Content = "A csillaggal jelölt mezők kitöltése kötelező!";
+                bdCegReg.Background = new SolidColorBrush(Colors.Red);
+                tbCegTelephely.BorderBrush = Brushes.Red;
+                tbCegTelephely.BorderThickness = new Thickness(errorThickness);
+                jo = false;
+            }
+            if (tbCegLeiras.Text == "")
+            {
+                lbAlcim.Content = "A csillaggal jelölt mezők kitöltése kötelező!";
+                bdCegReg.Background = new SolidColorBrush(Colors.Red);
+                tbCegLeiras.BorderBrush = Brushes.Red;
+                tbCegLeiras.BorderThickness = new Thickness(errorThickness);
+                jo = false;
+            }
 
+            using (DiakszovetkezetEntitiesFrameWork context = new DiakszovetkezetEntitiesFrameWork())
+            {
+                var result = from u in context.Companies
+                             select u;
+
+                foreach (var u in result)
+                {
+                    if (u.c_name == tbCegNev.Text) cegszabad = false;                    
+                }
+            }            
+        }
+
+        private void tbCegNev_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            tbCegNev.BorderBrush = Brushes.Transparent;
+            tbCegNev.BorderThickness = new Thickness(0, 0, 0, 1);
+            cegszabad = true;
         }
     }
 }
