@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,23 +12,18 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Windows.Controls.DataVisualization;
 
 namespace Diakszovetkezet
 {
     /// <summary>
-    /// Interaction logic for wndKimutatasok.xaml
+    /// Interaction logic for wndDiakAblak.xaml
     /// </summary>
-    public partial class wndKimutatasok : Window
+    public partial class wndDiakAblak : Window
     {
-        public wndKimutatasok()
+        public wndDiakAblak()
         {
             InitializeComponent();
-            LoadColumns();
         }
-        void LoadColumns()
-        {
-            ((ColumnSeries)dvcElvegzettMunka.Series[0])
-        }
+        
     }
 }

@@ -87,7 +87,10 @@
                                 <CompositeCollection>
                                     <MenuItem Header="Értesítési üzenet" Name="miEretesitCommand" PreviewMouseLeftButtonDown="EretesitCommand_PreviewMouseLeftButtonDown"  />
                                     <MenuItem Header="Időpont módosítás" Name="miIdopontmodCommand" PreviewMouseLeftButtonDown="IdopontmodCommand_PreviewMouseLeftButtonDown"/>
+<<<<<<< HEAD:wndRendszerAdmin.xaml
                                     <MenuItem Header="Diák adat módosítás" Name="miFelhasznaloadatmod" PreviewMouseLeftButtonDown="miFelhasznaloadatmod_PreviewMouseLeftButtonDown"/>
+=======
+>>>>>>> master:wndRendszerAdmin.xaml
                                 </CompositeCollection>
                             </ContextMenu.ItemsSource>
                         </ContextMenu>
@@ -166,7 +169,11 @@
                         <ContextMenu Name="ContextMenuFoglaltName" Grid.Row="3">
                             <ContextMenu.ItemsSource>
                                 <CompositeCollection>
+<<<<<<< HEAD:wndRendszerAdmin.xaml
                                     <MenuItem Header="Foglalás Törlése" Name="miFolalTorolCommand" PreviewMouseLeftButtonDown="ErtesitesCommand_PreviewMouseLeftButtonDown" />
+=======
+                                    <MenuItem Header="Foglalás Törlése" Name="miFolalTorolCommand" PreviewMouseLeftButtonDown="miFoglalTorolCommand_PreviewMouseLeftButtonDown" />
+>>>>>>> master:wndRendszerAdmin.xaml
                                 </CompositeCollection>
                             </ContextMenu.ItemsSource>
                         </ContextMenu>
