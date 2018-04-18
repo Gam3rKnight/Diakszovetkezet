@@ -83,6 +83,7 @@ namespace Diakszovetkezet
             public DateTime Munkavége { get; set; }
             public string Munkakör { get; set; }
         }
+        
 
         //<summary>
         //Ebbe a listába fogjuk betölteni azokat az adatokat amiket a listview-ba fogunk betölteni.
@@ -93,6 +94,11 @@ namespace Diakszovetkezet
         List<lvElmenetsEgyeztetDiak> lElementsEgyeztetDiakLista = new List<lvElmenetsEgyeztetDiak>();
         List<lvElementsFoglalas> lElementsFogalalsLista = new List<lvElementsFoglalas>();
 
+        //<summary>
+        //A diákok listáját tároljuk amit majd átadunk a kimutatások ablaknak
+        //<summary>
+        List<kimutatDiakok> diakok = new List<kimutatDiakok>();
+
 
         private void miKilepes_Click(object sender, RoutedEventArgs e)
         {
@@ -101,14 +107,7 @@ namespace Diakszovetkezet
         //<summary>
         //Itt egy további ablak nyílik meg ahol a felhasználók adatait tudjuk módosítani vagy törölni.
         //<summary>
-<<<<<<< HEAD
-       
-=======
-        private void miFelhasznaloadatmod_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
->>>>>>> master
         //<summary>
         //Elnavigál minket a céges regisztrációs felületre
         //<summary>
@@ -136,10 +135,25 @@ namespace Diakszovetkezet
         {
             ListakFeltoltese();
         }
-
+        
         private void miKimutatasok_Click(object sender, RoutedEventArgs e)
         {
-            wndKimutatasok kimutatasok = new wndKimutatasok();
+            using (DiakszovetkezetEntities context = new DiakszovetkezetEntities())
+            {
+                int i = 0, j = 1;
+                diakok.Clear();
+                var result = from u in context.Users
+                             where u.role == 1 
+                             select u;
+                foreach(var u in result)
+                {
+                    diakok.Add(new kimutatDiakok(u.username, i, j));
+                    i = i + 6 - 2;
+                    j = j * 5 - 3;
+               }
+            }
+            
+            wndKimutatasok kimutatasok = new wndKimutatasok(diakok);
             kimutatasok.ShowDialog();
         }
 
@@ -293,11 +307,7 @@ namespace Diakszovetkezet
                 }
 
                 var result1 = from w in context.Work join c in context.Companies on w.company_id equals c.c_id
-<<<<<<< HEAD
-                              where c.c_del == 1
-=======
                               where c.c_del == 1 && w.s_number > 0
->>>>>>> master
                               select new {w, c };
                 foreach (var d in result1)
                 {
@@ -437,10 +447,7 @@ namespace Diakszovetkezet
                     kiiras = "A "+d.c.c_name+" cégnél, ebben a munkakörben "+d.w.w_description+". Ezen a helyszínen: "+d.c.location+". Ebben a z időpontban: "+d.w.w_datestart+"-tól "+d.w.w_dateend+"-ig. \n Van számodra egy munka lehetőség. Érdekel? ";
                 }
 
-<<<<<<< HEAD
-=======
-              
->>>>>>> master
+
                 
                 if (wndTanulo.ErtesitesAblak(kiiras) == true)
                 {
@@ -455,8 +462,7 @@ namespace Diakszovetkezet
                             stuj.sw_del = 1;
                             entities.StudentWork.Add(stuj);
                             entities.SaveChanges();
-<<<<<<< HEAD
-=======
+
                             foreach (var c in result)
                             {
                                 Work w = entities.Work.First(i => i.w_id == c.w.w_id);
@@ -465,7 +471,7 @@ namespace Diakszovetkezet
                                 ListakFeltoltese();
                             }
                            
->>>>>>> master
+
                         }
                         catch (Exception)
                         {
@@ -534,9 +540,7 @@ namespace Diakszovetkezet
 
             }
         }
-<<<<<<< HEAD
-=======
-        
+
         private void miFoglalTorolCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             var selectedObj = lvFoglalasLista.SelectedItems[0] as lvElementsFoglalas;
@@ -574,7 +578,7 @@ namespace Diakszovetkezet
 
             }
         }
->>>>>>> master
+
 
         private void ErtesitesCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -621,7 +625,7 @@ namespace Diakszovetkezet
 
         }
 
-<<<<<<< HEAD
+
         private void miFelhasznaloadatmod_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             lvElmenetsDiak item = lvDiakLista.SelectedItem as lvElmenetsDiak;
@@ -637,7 +641,6 @@ namespace Diakszovetkezet
                 
             }
         }
-=======
->>>>>>> master
+
     }
 }

@@ -99,10 +99,9 @@ namespace Diakszovetkezet
                     w.w_datestart = dpMunkakezdet.DisplayDate;
                     w.w_dateend = dpMunkavége.DisplayDate;
                     w.w_name = tbMunkanév.Text;
-<<<<<<< HEAD
-=======
+
                     w.s_number = Convert.ToInt32(tbHelyekszáma.Text);
->>>>>>> master
+
                     w.w_description = tbLeírás.Text;
                     entities.SaveChanges();
 

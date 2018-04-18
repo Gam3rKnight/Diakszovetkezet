@@ -30,11 +30,7 @@ namespace Diakszovetkezet
             user = new structUserData();
         }
 
-        public structUserData User
-        {
-            get { return user; }
-            set { user = value; }
-        }
+    
 
         private void BejelentkezesFolyamat()
         {
