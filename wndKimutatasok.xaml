@@ -5,27 +5,73 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Diakszovetkezet"
         mc:Ignorable="d"
-        Title="Kimutatások" Height="500" Width="800">
-    <Grid>
+        Title="Kimutatások" Height="500" Width="800" ResizeMode="NoResize">
+    <Grid Background="AliceBlue">
         <Grid.RowDefinitions>
+           
             <RowDefinition Height="25"/>
-            <RowDefinition Height="25"/>
-            <RowDefinition Height="410"/>
+            <RowDefinition Height="435"/>
         </Grid.RowDefinitions>
-        <Border Grid.Row="0" Background="LightSkyBlue">
-            <Label Content="Kimutatások" HorizontalAlignment="Center"/>
-        </Border>
-        <Menu Grid.Row="1" Margin="730,0,5,0">
+  
+       
+        <Menu Grid.Row="0" Margin="725,0,5,0">
                 <Menu.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"/>
                     </ItemsPanelTemplate>
                 </Menu.ItemsPanel>
-            <MenuItem Header="Kilépés" HorizontalAlignment="Right" Width="50" />
+            <MenuItem Header="Bezárás" HorizontalAlignment="Right" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="50" />
             </Menu>
-        <TabControl Grid.Row="2">
+        <TabControl Grid.Row="1">
             <TabItem Header="Elvégzett munkák" Width="120">
-                
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Background="LightSkyBlue">
+                        <Label x:Name="lbDiak" Height="30" Content="Diák:" FontSize="15" Margin="10,0,0,0" VerticalContentAlignment="Center"/>
+                        <ComboBox x:Name="cbDiak" ItemsSource="{Binding}" Width="200" Height="30" Margin="20,0,100,0" FontSize="20"/>
+                        <Button x:Name="btFrissit" Width="100" Height="30" Content="Frissít" FontSize="18" VerticalContentAlignment="Center" Click="btFrissit_Click"/>
+                    </StackPanel> 
+                    
+                        <Grid Grid.Row="1" Background="LightGray">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="315"/>
+                                <RowDefinition Height="46"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="46"/>
+                                <ColumnDefinition Width="740"/>
+                                
+                            </Grid.ColumnDefinitions>
+                        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">
+                            <StackPanel Orientation="Vertical">
+                            <Label Content="Elvégzett" FontSize="25" Margin="0,30,0,0">
+                                <Label.LayoutTransform>
+                                    <RotateTransform Angle="90"></RotateTransform>
+                                </Label.LayoutTransform>
+                            </Label>
+                            <Label Content="Elvégzendő" FontSize="25" Margin="0,25,0,0">
+                                    <Label.LayoutTransform>
+                                        <RotateTransform Angle="90"></RotateTransform>
+                                    </Label.LayoutTransform>
+                                </Label>
+                            </StackPanel>
+                            <Rectangle Fill="Black" Width="5"/>
+                        </StackPanel>
+                        
+                        <Rectangle Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Top" Fill="Black" Height="5"/>
+                        <Canvas x:Name="cvAbra" Grid.Row="0" Grid.Column="1" Background="LightGray">
+                            <Rectangle x:Name="rcElvegzett" Fill="Red" Height="100" Width="Auto" Canvas.Top="35"/>
+                            <Label x:Name="lbElvegzett" Content="0" FontSize="20" Height="35" VerticalContentAlignment="Center"/>
+                            <Rectangle x:Name="rcElvegzendo" Fill="Coral" Height="100" Width="Auto" Canvas.Top="180"/>
+                            <Label x:Name="lbElvegzendo" Content="0" FontSize="20" Height="35" VerticalContentAlignment="Center"/>
+                        </Canvas>
+                    </Grid>
+                    
+                </Grid>
+
             </TabItem>
             <TabItem Header="Kifizetések">
                 

@@ -30,11 +30,7 @@ namespace Diakszovetkezet
             user = new structUserData();
         }
 
-        public structUserData User
-        {
-            get { return user; }
-            set { user = value; }
-        }
+    
 
 <<<<<<< HEAD
         private void btBejelentkezes_Click(object sender, RoutedEventArgs e)

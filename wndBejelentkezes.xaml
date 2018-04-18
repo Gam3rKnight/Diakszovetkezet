@@ -5,10 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Diakszovetkezet"
         mc:Ignorable="d"
+<<<<<<< HEAD
         Title="Diák Szövetkezet Nyílvántartó" Height="350" Width="525">
 <<<<<<< HEAD
     <Grid>
 =======
+=======
+        Title="Diák Szövetkezet Nyílvántartó" Height="350" Width="525" ResizeMode="NoResize">
+>>>>>>> Béla
     <Grid Name="grLoginGrid" KeyDown="grLoginGrid_KeyDown">
 >>>>>>> master
         <Grid.RowDefinitions>
