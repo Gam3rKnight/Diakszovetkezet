@@ -59,7 +59,7 @@ namespace Diakszovetkezet
 
             else if (jo)
             {
-                using (DiakszovetkezetEntitiesFrameWork entities = new DiakszovetkezetEntitiesFrameWork())
+                using (DiakszovetkezetEntities entities = new DiakszovetkezetEntities())
                 {
                     Companies uj = new Companies();
                     uj.c_name = tbCegNev.Text;
@@ -106,7 +106,7 @@ namespace Diakszovetkezet
                 jo = false;
             }
 
-            using (DiakszovetkezetEntitiesFrameWork context = new DiakszovetkezetEntitiesFrameWork())
+            using (DiakszovetkezetEntities context = new DiakszovetkezetEntities())
             {
                 var result = from u in context.Companies
                              select u;

@@ -22,6 +22,7 @@ namespace Diakszovetkezet
         public wndRendszerAdmin()
         {
             InitializeComponent();
+            ListakFeltoltese();
         }
 
         private int ID;
@@ -140,7 +141,8 @@ namespace Diakszovetkezet
         {
             using (DiakszovetkezetEntities context = new DiakszovetkezetEntities())
             {
-                int i = 0, j = 1;
+                Random r = new Random();
+                int i = r.Next(0,50), j = r.Next(0,50);
                 diakok.Clear();
                 var result = from u in context.Users
                              where u.role == 1 
@@ -148,8 +150,8 @@ namespace Diakszovetkezet
                 foreach(var u in result)
                 {
                     diakok.Add(new kimutatDiakok(u.username, i, j));
-                    i = i + 6 - 2;
-                    j = j * 5 - 3;
+                    i = r.Next(0,50);
+                    j = r.Next(0,50);
                }
             }
             
@@ -449,7 +451,7 @@ namespace Diakszovetkezet
 
 
                 
-                if (wndTanulo.ErtesitesAblak(kiiras) == true)
+                if (wndTanulo.vanErt(kiiras) == true)
                 {
                     using (DiakszovetkezetEntities entities = new DiakszovetkezetEntities())
                     {
