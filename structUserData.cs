@@ -6,12 +6,18 @@ using System.Threading.Tasks;
 
 namespace Diakszovetkezet
 {
-    class structUserData
+    public struct structUserData
     {
-        public string userName { get; set; }
-        public string email { get; set; }
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public int role { get; set; }
+        private static string UserName;
+        private static string Email;
+        private static string FirstName;
+        private static string LastName;
+        private static int Role;
+
+        public string userName { get { return UserName; } set { UserName = value; } }
+        public string email { get { return Email; } set { Email = value; } }
+        public string firstName { get { return FirstName; } set { FirstName = value; } }
+        public string lastName { get { return LastName; } set { LastName = value; } }
+        public int role { get { return Role; } set { Role = value; } }
     }
 }
