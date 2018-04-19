@@ -71,7 +71,7 @@ namespace Diakszovetkezet
                     uj.fname = tbVeznev.Text;
                     uj.lname = tbKernev.Text;
                     uj.role = 1;
-                    uj.del = 0;
+                    uj.del = 1;
                     entities.Users.Add(uj);
                     if(entities.SaveChanges()>0)
                     {
@@ -112,8 +112,8 @@ namespace Diakszovetkezet
             if (tbEmail.Text != "")
             {
                 
-                string[] email = tbEmail.Text.Split('@', '.');
-                if (email.Length != 3)
+                string[] email = tbEmail.Text.Split('@');
+                if (email.Length != 2)
                 {
                     MessageBox.Show("Az email nem megfeleő formátumú!\nA szabványos email formátum: 'nev'@'domainnev'.'hu'", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
                     tbEmail.BorderBrush = Brushes.Red;

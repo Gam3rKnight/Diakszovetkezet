@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Diakszovetkezet"
         mc:Ignorable="d"
-        Title="Diák Szövetkezet Nyílvántartó" Height="350" Width="525">
+        Title="Diák Szövetkezet Nyílvántartó" Height="350" Width="525" ResizeMode="NoResize">
+
     <Grid Name="grLoginGrid" KeyDown="grLoginGrid_KeyDown">
+
         <Grid.RowDefinitions>
             <RowDefinition Height="150" />
             <RowDefinition/>

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using tanuloablak;
 
 namespace Diakszovetkezet
 {
@@ -19,31 +20,64 @@ namespace Diakszovetkezet
     /// </summary>
     public partial class wndTanulo : Window
     {
+        
+     
         public wndTanulo()
         {
             InitializeComponent();
+            
         }
-
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        public bool vanErt(string ertesites)
         {
-
-        }
-
-        public bool ErtesitesAblak(string Kiiras)
-        {
-
-            var result = MessageBox.Show(Kiiras, "Értesítés", MessageBoxButton.YesNo);
-
+            var result = MessageBox.Show(ertesites, "Értesítés", MessageBoxButton.YesNo, MessageBoxImage.Information);
             if (result == MessageBoxResult.Yes)
-            {
-                MessageBox.Show("Sikeresen elfogadta a munkát!", "Elfogadva");
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            { return true; }
+            else return false;
+        }
+        private wndErtesites wndErtesit;
 
+        private void TbMyName_Loaded_1(object sender, RoutedEventArgs e)
+        {
+            ucgrid.Children.Clear();
+            var uc1 = new ucKereses();
+            ucgrid.Children.Add(uc1);
+
+        }
+
+        private void miKilepes_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void miIdotablazat_Click(object sender, RoutedEventArgs e)
+        {
+            ucgrid.Children.Clear();
+            var uc1 = new ucIdotablazat();
+            ucgrid.Children.Add(uc1);
+        }
+
+        private void miKereses_Click(object sender, RoutedEventArgs e)
+        {
+            ucgrid.Children.Clear();
+            var uc1 = new ucKereses();
+            ucgrid.Children.Add(uc1);
+
+        }
+        
+
+        private void miMunkanaplo_Click(object sender, RoutedEventArgs e)
+        {
+            ucgrid.Children.Clear();
+            var uc1 = new ucMunkanaplo();
+            ucgrid.Children.Add(uc1);
+        }
+        
+
+        private void miMunkaajanlatok_Click(object sender, RoutedEventArgs e)
+        {
+            wndErtesit = new wndErtesites();
+            wndErtesit.ShowDialog();
         }
     }
 }
+   
