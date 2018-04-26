@@ -1,0 +1,52 @@
+﻿<Window x:Class="Diakszovetkezet.wndRegisztracio"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Diakszovetkezet"
+        mc:Ignorable="d"
+        Title="Regisztráció" Height="440" Width="600">
+    <Grid Background="AliceBlue">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border x:Name="bdRegisztracio" Grid.Row="0" BorderThickness="0,1.2,0,0" BorderBrush="LightSkyBlue" Background="LightSkyBlue">
+            <Label x:Name="lbRegisztracio" Foreground="AntiqueWhite" Content="Diák regisztráció" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="20,0,0,0" />
+        </Border>
+        <GroupBox Grid.Row="1" Header="Diák regisztráció" BorderThickness="1.1" BorderBrush="SteelBlue" Background="AliceBlue">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label x:Name="lbFelhasznalonev" Grid.Column="0" Grid.Row="0" Content="Felhasználónév*" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="RoyalBlue" Margin="0,0,25,0"/>
+                <TextBox x:Name="tbFelhasznalonev" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" Height="30" FontSize="20" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="0" BorderBrush="Transparent" BorderThickness="0,0,0,1" Background="AliceBlue" Foreground="SteelBlue" TextChanged="tbFelhasznalonev_TextChanged"/>
+                <Label x:Name="lbJelszo" Grid.Column="0" Grid.Row="1" Content="Jelszó*" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="RoyalBlue" Margin="0,0,25,0"/>
+                <PasswordBox x:Name="pbJelszo" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" Height="30" FontSize="20" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="0" BorderBrush="Transparent" BorderThickness="0,0,0,1" Background="AliceBlue" Foreground="SteelBlue" PasswordChanged="pbJelszo_PasswordChanged"/>
+                <Label x:Name="lbJelszoujra" Grid.Column="0" Grid.Row="2" Content="Jelszó újra*" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="RoyalBlue" Margin="0,0,25,0"/>
+                <PasswordBox x:Name="pbJelszoujra" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" Height="30" FontSize="20" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="0" BorderBrush="Transparent" BorderThickness="0,0,0,1" Background="AliceBlue" Foreground="SteelBlue" PasswordChanged="pbJelszoujra_PasswordChanged"/>
+
+                <Label x:Name="lbEmail" Grid.Column="0" Grid.Row="3" Content="Email cím*" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="RoyalBlue" Margin="0,0,25,0"/>
+                <TextBox x:Name="tbEmail" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" Height="30" FontSize="20" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="0" BorderBrush="Transparent" BorderThickness="0,0,0,1" Background="AliceBlue" Foreground="SteelBlue" TextChanged="tbEmail_TextChanged"/>
+                <Label x:Name="lbVeznev" Grid.Column="0" Grid.Row="4" Content="Vezetéknév" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="RoyalBlue" Margin="0,0,25,0"/>
+                <TextBox x:Name="tbVeznev" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" Height="30" FontSize="20" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="0" BorderBrush="Transparent" BorderThickness="0,0,0,1" Background="AliceBlue" Foreground="SteelBlue"/>
+                <Label x:Name="lbKernev" Grid.Column="0" Grid.Row="5" Content="Keresztnév" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="RoyalBlue" Margin="0,0,25,0"/>
+                <TextBox x:Name="tbKernev" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" Height="30" FontSize="20" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="0" BorderBrush="Transparent" BorderThickness="0,0,0,1" Background="AliceBlue" Foreground="SteelBlue"/>
+                <Button x:Name="btUrit" Content="Mezők törlése" Grid.Column="0" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center" Height="35" Width="100" Click="btUrit_Click"/>
+                <Button x:Name="btRegisztral" Content="Regisztrál" Grid.Column="1" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center" Height="35" Width="100" Click="btRegisztral_Click"/>
+
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>
