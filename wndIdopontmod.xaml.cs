@@ -23,5 +23,32 @@ namespace Diakszovetkezet
         {
             InitializeComponent();
         }
+
+        
+        public string FelhasznaloID;
+       
+        private void btModositas_Click(object sender, RoutedEventArgs e)
+        {
+            using (DiakszovetkezetEntities entities = new DiakszovetkezetEntities())
+            {
+                try
+                {
+                    StudentTime st = entities.StudentTime.First(i => i.s_username == FelhasznaloID);
+                    
+                    st.datestart = Convert.ToDateTime(dpKezdesDatum.Text +" "+ tbKezdesIdopont.Text);
+                    st.dateend = Convert.ToDateTime(dpVegzesDatum.Text + " " + tbVegzesIdopont.Text);
+                    entities.StudentTime.Add(st);
+                    entities.SaveChanges();
+                    wndRendszerAdmin wndAdmin = new wndRendszerAdmin();
+                    wndAdmin.ListakFeltoltese();
+                    MessageBox.Show("A módosítások sikeresen megtörténtek!", "Értesítés!");
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
     }
 }

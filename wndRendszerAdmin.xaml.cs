@@ -429,58 +429,53 @@ namespace Diakszovetkezet
         private void miIdopontfoglalDiakCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
-            wndTanulo wndTanulo = new wndTanulo();
-            wndTanulo.Show();
-
             var selectedObj = lvEgyezDiákLista.SelectedItems[0] as lvElmenetsEgyeztetDiak;
 
             using (DiakszovetkezetEntities context = new DiakszovetkezetEntities())
             {
                 var result = from w in context.Work
-                              join c in context.Companies on w.company_id equals c.c_id
-                              where c.c_del == 1 && c.c_id == ID
-                              select new { w, c };
+                             join c in context.Companies on w.company_id equals c.c_id
+                             where c.c_del == 1 && c.c_id == ID
+                             select new { w, c };
 
                 string kiiras = "";
                 int id_work = 0;
                 foreach (var d in result)
                 {
                     id_work = d.w.w_id;
-                    kiiras = "A "+d.c.c_name+" cégnél, ebben a munkakörben "+d.w.w_description+". Ezen a helyszínen: "+d.c.location+". Ebben a z időpontban: "+d.w.w_datestart+"-tól "+d.w.w_dateend+"-ig. \n Van számodra egy munka lehetőség. Érdekel? ";
+                   // kiiras = "A " + d.c.c_name + " cégnél, ebben a munkakörben " + d.w.w_description + ". Ezen a helyszínen: " + d.c.location + ". Ebben a z időpontban: " + d.w.w_datestart + "-tól " + d.w.w_dateend + "-ig. \n Van számodra egy munka lehetőség. Érdekel? ";
                 }
 
 
-                
-                if (wndTanulo.vanErt(kiiras) == true)
-                {
-                    using (DiakszovetkezetEntities entities = new DiakszovetkezetEntities())
+
+
+                using (DiakszovetkezetEntities entities = new DiakszovetkezetEntities())
                     {
                         try
                         {
-                            StudentWork stuj = new StudentWork();
+                        StudentJobs stuj = new StudentJobs();
                             stuj.student_id = selectedObj.Felhasználónév;
                             stuj.work_id = id_work;
-                            stuj.sw_date = DateTime.Now;
-                            stuj.sw_del = 1;
-                            entities.StudentWork.Add(stuj);
+                            stuj.sj_del = 1;
+                            entities.StudentJobs.Add(stuj);
                             entities.SaveChanges();
 
-                            foreach (var c in result)
-                            {
-                                Work w = entities.Work.First(i => i.w_id == c.w.w_id);
-                                w.s_number = c.w.s_number - 1;
-                                entities.SaveChanges();
-                                ListakFeltoltese();
-                            }
+                            //foreach (var c in result)
+                            //{
+                            //    Work w = entities.Work.First(i => i.w_id == c.w.w_id);
+                            //    w.s_number = c.w.s_number - 1;
+                            //    entities.SaveChanges();
+                            //    ListakFeltoltese();
+                            //}
                            
 
                         }
-                        catch (Exception)
+                        catch (Exception ex)
                         {
-                            MessageBox.Show("A foglalás már létezik", "Figyelmeztetés!");
+                            MessageBox.Show("A foglalás már létezik"+ex.Message, "Figyelmeztetés!");
                         }
                     }
-                }
+                
             
             }
         }
@@ -585,55 +580,19 @@ namespace Diakszovetkezet
         private void IdopontmodCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             wndIdopontmod idopontmod = new wndIdopontmod();
+            var selectedObj = lvDiakLista.SelectedItems[0] as lvElmenetsDiak;
+            string[] splitKezd = selectedObj.Munkakezdés.ToString().Split(' ');
+            string[] splitVeg = selectedObj.Munkavégzés.ToString().Split(' ');
+            idopontmod.tbKezdesIdopont.Text = splitKezd[3];
+            idopontmod.tbVegzesIdopont.Text = splitVeg[3];
+            idopontmod.dpKezdesDatum.Text = selectedObj.Munkakezdés.ToShortDateString();
+            idopontmod.dpVegzesDatum.Text = selectedObj.Munkavégzés.ToShortDateString();
+            idopontmod.tbNev.Text = selectedObj.Vezetéknév + " " + selectedObj.Keresztnév;
+            idopontmod.FelhasznaloID = selectedObj.Felhasználónév;
             idopontmod.Show();
         }
 
 
-        /// <summary>
-        /// 
-        /// </summary>
-      
-        private void ErtesitesCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-        
-        private void EretesitCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-     
-
-        private void EretesitesekCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void IdopontokmodCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void IdopontosszeCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void MunkafoglalasCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void imgErtesitesHarang_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-        
-        private void IdopontmodDiakCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
 
 
         private void miFelhasznaloadatmod_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)

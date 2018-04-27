@@ -14,18 +14,19 @@
             <RowDefinition Height="55"/>
             <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
+        <TextBlock Grid.Row="1" HorizontalAlignment="Stretch" TextAlignment="Center" Name="tbNev" FontSize="16" Text="Név" Margin="15"/>
         <TextBlock Grid.Row="0" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="16" Text="Diák Időpont Módosítás" Background="LightSkyBlue" VerticalAlignment="Stretch"/>
         <StackPanel Grid.Row="2" Orientation="Horizontal">
             <TextBlock Width="100" Margin="20,15,10,15" Text="Kezdés Időpontja"/>
             <DatePicker Margin="15,15,0,15" Width="130" Name="dpKezdesDatum" />
-            <TextBox Width="100" Margin="15" Name="tbKezdesIdopont"/>
+            <TextBox Width="90" Margin="15" Name="tbKezdesIdopont"/>
         </StackPanel>
         <StackPanel Grid.Row="3" Orientation="Horizontal">
             <TextBlock Width="100" Margin="20,15,10,15" Text="Végzés Időpontja"/>
             <DatePicker Margin="15,15,0,15" Width="130" Name="dpVegzesDatum" />
-            <TextBox Width="100" Margin="15" Name="tbVegzesIdopont"/>
+            <TextBox Width="90" Margin="15" Name="tbVegzesIdopont"/>
         </StackPanel>
-        <Button Grid.Row="4" Width="70" Height="30" HorizontalAlignment="Right" Margin="0,0,20,0" Content="Módosítás"/>
+        <Button Grid.Row="4" Width="70" Height="30" HorizontalAlignment="Right" Margin="0,0,20,0" Content="Módosítás" Name="btModositas" Click="btModositas_Click"/>
 
     </Grid>
 </Window>

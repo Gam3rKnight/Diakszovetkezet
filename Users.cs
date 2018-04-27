@@ -17,6 +17,7 @@ namespace Diakszovetkezet
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Users()
         {
+            this.StudentJobs = new HashSet<StudentJobs>();
             this.StudentTime = new HashSet<StudentTime>();
             this.StudentWork = new HashSet<StudentWork>();
         }
@@ -29,6 +30,8 @@ namespace Diakszovetkezet
         public int role { get; set; }
         public int del { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<StudentJobs> StudentJobs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StudentTime> StudentTime { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

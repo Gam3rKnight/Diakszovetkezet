@@ -1,4 +1,6 @@
 --Ezzel szúrjuk be a felhasználókat
+DELETE FROM StudentJobs;
+DELETE FROM StudentWork;
 DELETE FROM StudentTime;
 DELETE FROM Users;
 DELETE FROM Work;

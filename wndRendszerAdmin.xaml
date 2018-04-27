@@ -25,7 +25,7 @@
             <MenuItem Header="Felhasználó regisztráció" Name="miFelhasznaloregisztracio" Click="miFelhasznaloregisztracio_Click" BorderBrush="LightSkyBlue"/>
             <MenuItem Header="Diák főablak" Name="miDiakfoablak" Click="miDiakfoablak_Click" BorderBrush="LightSkyBlue"/>
             <MenuItem Header="Kimutatások" Name="miKimutatasok" Click="miKimutatasok_Click" BorderBrush="LightSkyBlue"/>
-            <MenuItem Header="Munka REgisztráció" Name="miMunkaRegisztracio" Click="miMunkaRegisztracio_Click" BorderBrush="LightSkyBlue"/>
+            <MenuItem Header="Munka Regisztráció" Name="miMunkaRegisztracio" Click="miMunkaRegisztracio_Click" BorderBrush="LightSkyBlue"/>
 
         </Menu>
         <Menu Grid.Row="1" Margin="1000,0,0,0" >
@@ -90,7 +90,6 @@
                             <ContextMenu.ItemsSource>
                                 <CompositeCollection>
 
-                                    <MenuItem Header="Értesítési üzenet" Name="miEretesitCommand" PreviewMouseLeftButtonDown="EretesitCommand_PreviewMouseLeftButtonDown"  />
                                     <MenuItem Header="Időpont módosítás"  Name="miIdopontmodCommand" PreviewMouseLeftButtonDown="IdopontmodCommand_PreviewMouseLeftButtonDown"/>
                                     <MenuItem Header="Felhasznáói adat módosítás" Name="miFelhasznaloAdatmod" PreviewMouseLeftButtonDown="miFelhasznaloadatmod_PreviewMouseLeftButtonDown" />
                                 </CompositeCollection>
@@ -181,11 +180,7 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Stretch">
-
-            <Image Width="40" Margin="5" Source="bell.jpg" Name="imgErtesitesHarang" PreviewMouseLeftButtonDown="imgErtesitesHarang_PreviewMouseLeftButtonDown"/>
-            <TextBlock Text="0" Width="20" FontSize="30" TextAlignment="Center" Name="tbErtesitesSzam"/>
-        </StackPanel>
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Stretch"/>
         <Rectangle Grid.Row="0" Fill="LightSkyBlue"/>
         <TextBox Grid.Row="0" Width="200" Margin="1" HorizontalAlignment="Left" Text="Cég keresés" Foreground="Gray" Name="tbCegKereses" GotFocus="tbCegKereses_GotFocus" LostFocus="tbCegKereses_LostFocus" KeyDown="tbCegKereses_KeyDown"/>
 
