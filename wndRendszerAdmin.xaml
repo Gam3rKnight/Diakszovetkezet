@@ -25,7 +25,7 @@
             <MenuItem Header="Felhasználó regisztráció" Name="miFelhasznaloregisztracio" Click="miFelhasznaloregisztracio_Click" BorderBrush="LightSkyBlue"/>
             <MenuItem Header="Diák főablak" Name="miDiakfoablak" Click="miDiakfoablak_Click" BorderBrush="LightSkyBlue"/>
             <MenuItem Header="Kimutatások" Name="miKimutatasok" Click="miKimutatasok_Click" BorderBrush="LightSkyBlue"/>
-            <MenuItem Header="Munka Regisztráció" Name="miMunkaREgisztracio" Click="miMunkaREgisztracio_Click" BorderBrush="LightSkyBlue"/>
+            <MenuItem Header="Munka REgisztráció" Name="miMunkaRegisztracio" Click="miMunkaRegisztracio_Click" BorderBrush="LightSkyBlue"/>
 
         </Menu>
         <Menu Grid.Row="1" Margin="1000,0,0,0" >
@@ -41,6 +41,7 @@
                 <Grid Background="White" Grid.Row="3">
                     <ListView Margin="0,0,0,10" HorizontalAlignment="Stretch" Name="lvMunkaLista" >
 
+
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="" Width="0" DisplayMemberBinding="{Binding ID}"/>
@@ -54,14 +55,16 @@
                             </GridView>
                         </ListView.View>
 
+
                     </ListView>
                     <Grid.ContextMenu>
                         <ContextMenu Name="ContextMenuMunkaName" Grid.Row="3">
                             <ContextMenu.ItemsSource>
                                 <CompositeCollection>
-                                    <MenuItem Header="Értesítési üzenet" Name="miErtesitesCommand" PreviewMouseLeftButtonDown="ErtesitesCommand_PreviewMouseLeftButtonDown" />
+
                                     <MenuItem Header="Munka törlése" Name="miMunkatorolComman" PreviewMouseLeftButtonDown="miMunkatorolComman_PreviewMouseLeftButtonDown"/>
                                     <MenuItem Header="Munka módosítása" Name="miMunkamodCommand" PreviewMouseLeftButtonDown="miMunkamodCommand_PreviewMouseLeftButtonDown"/>
+
                                 </CompositeCollection>
                             </ContextMenu.ItemsSource>
                         </ContextMenu>
@@ -70,7 +73,7 @@
             </TabItem>
             <TabItem Header="Diákok" Name="tiDiakok">
                 <Grid Background="White">
-                    <ListView Margin="0,0,0,10" HorizontalAlignment="Stretch" Name="lvDiakLista" >
+                    <ListView Margin="0,0,0,10" HorizontalAlignment="Stretch" Name="lvDiakLista" SelectionChanged="lvDiakLista_SelectionChanged" >
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Felhasználónév" Width="120" DisplayMemberBinding="{Binding Felhasználónév}"/>
@@ -86,10 +89,10 @@
                         <ContextMenu Name="ContextMenuDiakName" Grid.Row="3">
                             <ContextMenu.ItemsSource>
                                 <CompositeCollection>
-                                    <MenuItem Header="Értesítési üzenet" Name="miEretesitCommand" PreviewMouseLeftButtonDown="EretesitCommand_PreviewMouseLeftButtonDown"  />
-                                    <MenuItem Header="Időpont módosítás" Name="miIdopontmodCommand" PreviewMouseLeftButtonDown="IdopontmodCommand_PreviewMouseLeftButtonDown"/>
-                                    <MenuItem Header="Diák adat módosítás" Name="miFelhasznaloadatmod" PreviewMouseLeftButtonDown="miFelhasznaloadatmod_PreviewMouseLeftButtonDown"/>
 
+                                    <MenuItem Header="Értesítési üzenet" Name="miEretesitCommand" PreviewMouseLeftButtonDown="EretesitCommand_PreviewMouseLeftButtonDown"  />
+                                    <MenuItem Header="Időpont módosítás"  Name="miIdopontmodCommand" PreviewMouseLeftButtonDown="IdopontmodCommand_PreviewMouseLeftButtonDown"/>
+                                    <MenuItem Header="Felhasznáói adat módosítás" Name="miFelhasznaloAdatmod" PreviewMouseLeftButtonDown="miFelhasznaloadatmod_PreviewMouseLeftButtonDown" />
                                 </CompositeCollection>
                             </ContextMenu.ItemsSource>
                         </ContextMenu>
@@ -98,6 +101,7 @@
             </TabItem>
             <TabItem Header="Munka Diák Egyeztető" Name="tiMunkaDiak">
                 <Grid Background="White">
+
 
                     <ListView Margin="0,0,0,10" HorizontalAlignment="Left" Name="lvEgyezMunkaLista" ContextMenuOpening="lvEgyezMunkaLista_ContextMenuOpening" >
                         <ListView.View>
@@ -168,7 +172,6 @@
                         <ContextMenu Name="ContextMenuFoglaltName" Grid.Row="3">
                             <ContextMenu.ItemsSource>
                                 <CompositeCollection>
-
                                     <MenuItem Header="Foglalás Törlése" Name="miFolalTorolCommand" PreviewMouseLeftButtonDown="miFoglalTorolCommand_PreviewMouseLeftButtonDown" />
 
                                 </CompositeCollection>
@@ -179,11 +182,13 @@
             </TabItem>
         </TabControl>
         <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Stretch">
+
             <Image Width="40" Margin="5" Source="bell.jpg" Name="imgErtesitesHarang" PreviewMouseLeftButtonDown="imgErtesitesHarang_PreviewMouseLeftButtonDown"/>
             <TextBlock Text="0" Width="20" FontSize="30" TextAlignment="Center" Name="tbErtesitesSzam"/>
         </StackPanel>
         <Rectangle Grid.Row="0" Fill="LightSkyBlue"/>
         <TextBox Grid.Row="0" Width="200" Margin="1" HorizontalAlignment="Left" Text="Cég keresés" Foreground="Gray" Name="tbCegKereses" GotFocus="tbCegKereses_GotFocus" LostFocus="tbCegKereses_LostFocus" KeyDown="tbCegKereses_KeyDown"/>
+
         <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="27" Text="Adminisztrátori Felület" Foreground="RoyalBlue"/>
        
     </Grid>

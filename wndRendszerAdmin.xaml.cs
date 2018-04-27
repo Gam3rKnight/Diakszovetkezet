@@ -22,6 +22,7 @@ namespace Diakszovetkezet
         public wndRendszerAdmin()
         {
             InitializeComponent();
+            ListakFeltoltese();
         }
 
         private int ID;
@@ -104,7 +105,9 @@ namespace Diakszovetkezet
         {
             Application.Current.Shutdown();
         }
-       
+        //<summary>
+        //Itt egy további ablak nyílik meg ahol a felhasználók adatait tudjuk módosítani vagy törölni.
+        //<summary>
 
         //<summary>
         //Elnavigál minket a céges regisztrációs felületre
@@ -122,43 +125,38 @@ namespace Diakszovetkezet
             wndRegisztracio regisztracio = new wndRegisztracio();
             regisztracio.Show();
         }
-        //<summary>
-        //A  diák ablak felülethez navigál
-        //<summary>
+
         private void miDiakfoablak_Click(object sender, RoutedEventArgs e)
         {
             wndTanulo diakAblak = new wndTanulo();
             diakAblak.Show();
         }
-        //<summary>
-        // Frissíti a listákat
-        //<summary>
+
         private void miFrissites_Click(object sender, RoutedEventArgs e)
         {
             ListakFeltoltese();
         }
-        //<summary>
-        //A kimutatások ablakhoz navigál
-        //<summary>
+        
         private void miKimutatasok_Click(object sender, RoutedEventArgs e)
         {
             using (DiakszovetkezetEntities context = new DiakszovetkezetEntities())
             {
-                int i = 0, j = 1;
-                //diakok.Clear();
+                Random r = new Random();
+                int i = r.Next(0,50), j = r.Next(0,50);
+                diakok.Clear();
                 var result = from u in context.Users
                              where u.role == 1 
                              select u;
                 foreach(var u in result)
                 {
-                    //diakok.Add(new kimutatDiakok(u.username, i, j));
-                    i = i + 6 - 2;
-                    j = j * 5 - 3;
+                    diakok.Add(new kimutatDiakok(u.username, i, j));
+                    i = r.Next(0,50);
+                    j = r.Next(0,50);
                }
             }
             
-            //wndKimutatasok kimutatasok = new wndKimutatasok(diakok);
-            //kimutatasok.ShowDialog();
+            wndKimutatasok kimutatasok = new wndKimutatasok(diakok);
+            kimutatasok.ShowDialog();
         }
 
         //<summary>
@@ -453,7 +451,7 @@ namespace Diakszovetkezet
 
 
                 
-                if (wndTanulo.ErtesitesAblak(kiiras) == true)
+                if (wndTanulo.vanErt(kiiras) == true)
                 {
                     using (DiakszovetkezetEntities entities = new DiakszovetkezetEntities())
                     {
@@ -552,7 +550,7 @@ namespace Diakszovetkezet
             using (DiakszovetkezetEntities entities = new DiakszovetkezetEntities())
             {
                 var result = new StudentWork { student_id = selectedObj.Felhasználónév, work_id = selectedObj.C_ID };
-             
+                
                 var message = MessageBox.Show("Biztosan törli a foglalást?", "Figyelmeztetés!", MessageBoxButton.YesNo);
 
                 if (message == MessageBoxResult.Yes)
@@ -569,7 +567,7 @@ namespace Diakszovetkezet
                         ListakFeltoltese();
                         MessageBox.Show("Sikeresen törölte a (" + selectedObj.Cégnév + " cég, " + selectedObj.Felhasználónév + " felhasználó) foglalását!", "Törlési Értesítő!");
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
 
                         MessageBox.Show("Nem sikerült a törlés", "Figyelmeztetés!");
@@ -579,13 +577,22 @@ namespace Diakszovetkezet
             }
         }
 
-
-        private void miMunkaREgisztracio_Click(object sender, RoutedEventArgs e)
+        private void miMunkaRegisztracio_Click(object sender, RoutedEventArgs e)
         {
-            // Dani Része
+            //Dani Része
+        }
+
+        private void IdopontmodCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            wndIdopontmod idopontmod = new wndIdopontmod();
+            idopontmod.Show();
         }
 
 
+        /// <summary>
+        /// 
+        /// </summary>
+      
         private void ErtesitesCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
@@ -596,10 +603,7 @@ namespace Diakszovetkezet
 
         }
 
-        private void IdopontmodCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
+     
 
         private void EretesitesekCommand_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -643,10 +647,14 @@ namespace Diakszovetkezet
             else
             {
                  wndUserChange userChange = new wndUserChange(item.Felhasználónév);
-                userChange.ShowDialog();
+                 userChange.ShowDialog();
                 
             }
         }
 
+        private void lvDiakLista_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

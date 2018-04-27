@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:Diakszovetkezet"
         mc:Ignorable="d"
         Title="Diák Szövetkezet Nyílvántartó" Height="350" Width="525" ResizeMode="NoResize">
+
     <Grid Name="grLoginGrid" KeyDown="grLoginGrid_KeyDown">
+
         <Grid.RowDefinitions>
             <RowDefinition Height="150" />
             <RowDefinition/>
@@ -30,14 +32,14 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,25,45,20">
 
             <Label x:Name="laFelhasznalonev" Content="Felhasználónév" Foreground="RoyalBlue" FontSize="20" Margin="0,0,20,0" />
-            <TextBox x:Name="tbFelhasznalonev" FontSize="20" Background="AliceBlue" Foreground="SteelBlue" VerticalAlignment="Center" Width="200" CaretBrush="DimGray" BorderBrush="Transparent" BorderThickness="0,0,0,1" UseLayoutRounding="True" TextChanged="tbFelhasznalonev_TextChanged" />
+            <TextBox TabIndex="0" x:Name="tbFelhasznalonev" FontSize="20" Background="AliceBlue" Foreground="SteelBlue" VerticalAlignment="Center" Width="200" CaretBrush="DimGray" BorderBrush="Transparent" BorderThickness="0,0,0,1" UseLayoutRounding="True" TextChanged="tbFelhasznalonev_TextChanged" />
 
         </StackPanel>
            </Border>
         <Border x:Name="bdJelszo" Grid.Row="2" BorderBrush="CornflowerBlue" Background="AliceBlue">
             <StackPanel  Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,45,25">
                 <Label x:Name="laJelszo" Content="Jelszó" Foreground="RoyalBlue" FontSize="20" Margin="0,0,20,0" />
-                <PasswordBox x:Name="pbJelszo" FontSize="20" Background="AliceBlue" Foreground="SteelBlue" VerticalAlignment="Center" Width="200" CaretBrush="DimGray" BorderBrush="Transparent" BorderThickness="0,0,0,1" UseLayoutRounding="True" PasswordChanged="pbJelszo_PasswordChanged"/>
+                <PasswordBox TabIndex="1" x:Name="pbJelszo" FontSize="20" Background="AliceBlue" Foreground="SteelBlue" VerticalAlignment="Center" Width="200" CaretBrush="DimGray" BorderBrush="Transparent" BorderThickness="0,0,0,1" UseLayoutRounding="True" PasswordChanged="pbJelszo_PasswordChanged"/>
             </StackPanel>
         </Border>
 

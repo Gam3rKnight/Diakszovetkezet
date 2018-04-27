@@ -9,7 +9,7 @@
 
     <StackPanel x:Name="MainStackPanel" Background="AliceBlue">
 
-        <Border BorderBrush="CornflowerBlue" BorderThickness="0,0,0,2">
+        <Border x:Name="bdCegReg" BorderBrush="CornflowerBlue" BorderThickness="0,0,0,2">
             <Label x:Name="lbAlcim" Content="Cég regisztráció" FontSize="20" HorizontalAlignment="Center"/>
         </Border>
 
@@ -20,8 +20,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="tblCegNev" Text="Cég neve " VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,8"/>
-            <TextBox x:Name="tbCegNev" HorizontalAlignment="Left" Height="20" VerticalAlignment="Center" Width="300" Grid.Column="1" Margin="0,8"/>
+            <TextBlock x:Name="tblCegNev" Text="Cég neve* " VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,8"/>
+            <TextBox x:Name="tbCegNev" HorizontalAlignment="Left" Height="20" VerticalAlignment="Center" Width="300" Grid.Column="1" Margin="0,8" TextChanged="tbCegNev_TextChanged"/>
         </Grid>
 
         <!--Telephely cím-->        
@@ -31,7 +31,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="tblCegTelephely" Text="Telephely címe " VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,8"/>
+            <TextBlock x:Name="tblCegTelephely" Text="Telephely címe*" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,8"/>
             <TextBox x:Name="tbCegTelephely" HorizontalAlignment="Left" Height="20" VerticalAlignment="Center" Width="300" Grid.Column="1" Margin="0,8"/>
         </Grid>
         
@@ -58,7 +58,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="tblCegLeiras" Text="Cég leírás " VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,8"/>
+            <TextBlock x:Name="tblCegLeiras" Text="Munka leírása* " VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,8"/>
             <TextBox x:Name="tbCegLeiras" HorizontalAlignment="Left" Height="50" VerticalAlignment="Center" Width="300" Grid.Column="1" Margin="0,8"/>
         </Grid>
         
@@ -69,8 +69,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="150"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="btCegRegVissza" Content="Vissza" Margin="0,10" Width="75"/>
-            <Button x:Name="btCegRegKesz" Content="Kész" Grid.Column="2" Margin="0,10"  VerticalAlignment="Center" Width="75"/>
+            <Button x:Name="btCegRegVissza" Click="btCegRegVissza_Click" Content="Vissza" Margin="0,10" Width="75"/>
+            <Button x:Name="btCegRegKesz" Click="btCegRegKesz_Click" Content="Kész" Grid.Column="2" Margin="0,10"  VerticalAlignment="Center" Width="75"/>
         </Grid>
         
 
