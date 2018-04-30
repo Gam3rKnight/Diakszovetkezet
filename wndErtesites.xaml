@@ -13,6 +13,7 @@
         </Grid.RowDefinitions>
         <DataGrid x:Name="dgkeres" Grid.Row="0">
             <DataGrid.Columns >
+                <DataGridTextColumn Header ="ID" Width="30" Binding="{Binding ID}"/>
                 <DataGridTextColumn Header="Munka neve" Width="150" Binding="{Binding Munka}"/>
                 <DataGridTextColumn Header="Cég neve" Width="120" Binding="{Binding Cégnév}"/>
                 <DataGridTextColumn Header="Helyszín" Width="250" Binding="{Binding Helyszín}"/>
@@ -21,7 +22,7 @@
                 <DataGridTextColumn Header="Munkaköri leírás" Width="380" Binding="{Binding Munkakör}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btElfogad" Content="Elfogad" HorizontalAlignment="Right" VerticalAlignment="Top" Width="75" Grid.Row="1"/>
+        <Button x:Name="btElfogad" Content="Elfogad" HorizontalAlignment="Right" VerticalAlignment="Top" Width="75" Grid.Row="1" Click="btElfogad_Click"/>
         <Button x:Name="btVissza" Content="Vissza" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Grid.Row="1"/>
 
     </Grid>

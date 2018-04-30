@@ -30,6 +30,7 @@ namespace tanuloablak
 
         public class lvElementsMunkaErtetsites
         {
+            public int ID { get; set; }
             public string Munka { get; set; }
             public string Cégnév { get; set; }
             public string Helyszín { get; set; }
@@ -51,21 +52,66 @@ namespace tanuloablak
                              where u.username == userData.userName && sj.sj_del == 1
                              select new { sj, w, u, c };
 
-                foreach (var d in result)
+                try
                 {
-                    lElementsMunkaErtesites.Add(new lvElementsMunkaErtetsites
+                    foreach (var d in result)
                     {
-                        Munka = d.w.w_name,
-                        Cégnév = d.c.c_name,
-                        Helyszín = d.c.location,
-                        Munkakezdet = d.w.w_datestart,
-                        Munkavége = d.w.w_dateend,
-                        Munkakör = d.w.w_description
-                    });
+                        lElementsMunkaErtesites.Add(new lvElementsMunkaErtetsites
+                        {
+                            ID = d.w.w_id,
+                            Munka = d.w.w_name,
+                            Cégnév = d.c.c_name,
+                            Helyszín = d.c.location,
+                            Munkakezdet = d.w.w_datestart,
+                            Munkavége = d.w.w_dateend,
+                            Munkakör = d.w.w_description
+                        });
+                    }
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show(userData.userName+" Felhasznlóban van!");
                 }
 
                 dgkeres.ItemsSource = null;
                 dgkeres.ItemsSource = lElementsMunkaErtesites;
+            }
+        }
+
+        private void btElfogad_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedObj = dgkeres.SelectedItems[0] as lvElementsMunkaErtetsites;
+
+            using (DiakszovetkezetEntities entities = new DiakszovetkezetEntities())
+            {
+                var result = from w in entities.Work
+                             join c in entities.Companies on w.company_id equals c.c_id
+                             where c.c_del == 1 && w.w_id == selectedObj.ID
+                             select new { w, c };
+
+                try
+                {
+                    StudentWork stuw = new StudentWork();
+                    stuw.student_id = userData.userName;
+                    stuw.work_id = selectedObj.ID;
+                    stuw.sw_del = 1;
+                    stuw.sw_date = DateTime.Now;
+                    entities.StudentWork.Add(stuw);
+                    entities.SaveChanges();
+
+                    foreach (var c in result)
+                    {
+                        Work w = entities.Work.First(i => i.w_id == c.w.w_id);
+                        w.s_number = c.w.s_number - 1;
+                        entities.SaveChanges();
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Nem sikerült a folalás!"+ex.Message);
+                }
             }
         }
     }

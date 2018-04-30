@@ -438,12 +438,11 @@ namespace Diakszovetkezet
                              where c.c_del == 1 && c.c_id == ID
                              select new { w, c };
 
-                string kiiras = "";
+                
                 int id_work = 0;
                 foreach (var d in result)
                 {
                     id_work = d.w.w_id;
-                   // kiiras = "A " + d.c.c_name + " cégnél, ebben a munkakörben " + d.w.w_description + ". Ezen a helyszínen: " + d.c.location + ". Ebben a z időpontban: " + d.w.w_datestart + "-tól " + d.w.w_dateend + "-ig. \n Van számodra egy munka lehetőség. Érdekel? ";
                 }
 
 
@@ -460,19 +459,11 @@ namespace Diakszovetkezet
                             entities.StudentJobs.Add(stuj);
                             entities.SaveChanges();
 
-                            //foreach (var c in result)
-                            //{
-                            //    Work w = entities.Work.First(i => i.w_id == c.w.w_id);
-                            //    w.s_number = c.w.s_number - 1;
-                            //    entities.SaveChanges();
-                            //    ListakFeltoltese();
-                            //}
-                           
-
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("A foglalás már létezik"+ex.Message, "Figyelmeztetés!");
+                        
+                            MessageBox.Show("A foglalás már létezik. "+ex.Message, "Figyelmeztetés!");
                         }
                     }
                 
