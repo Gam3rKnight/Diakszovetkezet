@@ -93,7 +93,7 @@ namespace Diakszovetkezet
         List<lvElmenetsDiak> lElementsDiak = new List<lvElmenetsDiak>();
         List<lvElmenetsEgyeztetMunka> lElementsEgyeztetMunkaLista = new List<lvElmenetsEgyeztetMunka>();
         List<lvElmenetsEgyeztetDiak> lElementsEgyeztetDiakLista = new List<lvElmenetsEgyeztetDiak>();
-        List<lvElementsFoglalas> lElementsFogalalsLista = new List<lvElementsFoglalas>();
+        List<lvElementsFoglalas> lElementsFogalalasLista = new List<lvElementsFoglalas>();
 
         //<summary>
         //A diákok listáját tároljuk amit majd átadunk a kimutatások ablaknak
@@ -105,10 +105,7 @@ namespace Diakszovetkezet
         {
             Application.Current.Shutdown();
         }
-        //<summary>
-        //Itt egy további ablak nyílik meg ahol a felhasználók adatait tudjuk módosítani vagy törölni.
-        //<summary>
-
+       
         //<summary>
         //Elnavigál minket a céges regisztrációs felületre
         //<summary>
@@ -280,7 +277,7 @@ namespace Diakszovetkezet
                 lElementsEgyeztetDiakLista.Clear();
                 lElementsMunka.Clear();
                 lElementsDiak.Clear();
-                lElementsFogalalsLista.Clear();
+                lElementsFogalalasLista.Clear();
 
                 foreach (var x in result)
                 {
@@ -346,7 +343,7 @@ namespace Diakszovetkezet
 
                 foreach (var read in result2)
                 {
-                    lElementsFogalalsLista.Add(new lvElementsFoglalas()
+                    lElementsFogalalasLista.Add(new lvElementsFoglalas()
                     {
                         C_ID = read.w.w_id,
                         Felhasználónév = read.u.username,
@@ -372,7 +369,7 @@ namespace Diakszovetkezet
             lvEgyezMunkaLista.ItemsSource = null;
             lvEgyezMunkaLista.ItemsSource = lElementsEgyeztetMunkaLista;
             lvFoglalasLista.ItemsSource = null;
-            lvFoglalasLista.ItemsSource = lElementsFogalalsLista;
+            lvFoglalasLista.ItemsSource = lElementsFogalalasLista;
             
         }
 
@@ -602,9 +599,5 @@ namespace Diakszovetkezet
             }
         }
 
-        private void lvDiakLista_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
     }
 }

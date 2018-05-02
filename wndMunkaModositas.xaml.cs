@@ -22,7 +22,7 @@ namespace Diakszovetkezet
         public wndMunkaModositas()
         {
             InitializeComponent();
-            tbRollback.Visibility = Visibility.Hidden;
+            btRollback.Visibility = Visibility.Hidden;
 
         }
 
@@ -47,7 +47,7 @@ namespace Diakszovetkezet
 
         private void tbRollback_Click(object sender, RoutedEventArgs e)
         {
-            tbRollback.Visibility = Visibility.Hidden;
+            btRollback.Visibility = Visibility.Hidden;
 
             tbMunkanév.Text = recover.munkaNév;
             dpMunkakezdet.SelectedDate = recover.munkaKezdet;
@@ -74,7 +74,7 @@ namespace Diakszovetkezet
                 recover.helyekSzáma = tbHelyekszáma.Text;
                 recover.leírás = tbLeírás.Text;
 
-                tbRollback.Visibility = Visibility.Visible;
+                btRollback.Visibility = Visibility.Visible;
 
                 tbMunkanév.Text = "";
                 dpMunkakezdet.SelectedDate = DateTime.Now;

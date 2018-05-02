@@ -48,7 +48,7 @@
             <Button Content="Vissza" Width="70" Margin="20,15,20,15" Name="btVissza" Click="btVissza_Click" />
             <Button Content="Törlés" Width="70" Margin="20,15,20,15" Name="btTörlés" Click="btTörlés_Click"/>
             <Button Content="Módosítás" Width="70" Margin="20,15,20,15" Name="btMódosítás" Click="btMódosítás_Click"/>
-            <Button Grid.Row="7" Width="30" Height="30" Margin="20,15,20,15" Background="White" Name="tbRollback" Click="tbRollback_Click">
+            <Button Grid.Row="7" Width="30" Height="30" Margin="20,15,20,15" Background="White" Name="btRollback" Click="tbRollback_Click">
                 <StackPanel>
                     <Image Source="rollback.png" Width="25" Height="25" HorizontalAlignment="Center"/>
                 </StackPanel>
